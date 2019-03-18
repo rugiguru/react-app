@@ -40,12 +40,19 @@ class Form extends Component {
         axios.post('http://localhost:8000/api/login', {
             email: this.state.username,
             password: this.state.password
-          }, {headers : headers})
-          .then(response => response.data.status)
-            .catch(error => {
-        if (error.response) {
-          console.log(error.response);
-        }
+          })
+          .then(res => {
+
+            if(res.data.status == 1){
+              localStorage.setItem("authKey", res.data.token);
+              this.setState({"authKey":res.data.token});
+              this.setState({"error":0,"message":""});
+              this.props.history.push("/languages");
+            } else {
+              this.setState({"error":1,"message":res.data.message});
+            }
+          }).catch((error) => {
+            this.setState({"error":1,"message":"Unable to Authenticate"});
           });
 
     }
@@ -58,18 +65,15 @@ class Form extends Component {
                         <input type="text" value={this.state.username} onChange={this.handleUserName}/>
                         {this.state.usernameError ? <small className="error">User Name is required</small>: ''} 
                     </div>
-
                     <div>
                         <label>Password </label>
                         <input type="password" value={this.state.password} onChange={this.handlePassword}/>
                     </div>
-
                     <div>
                         <label>Comments</label>
                         <textarea value={this.state.comment} onChange={this.handleComments}></textarea>
                         {this.state.commentError ? <small className="error">Comments Cannot be empty</small>: ''} 
                     </div>
-
                     <div>
                         <label>Topic</label>
                         <select value={this.state.comment} onChange={this.handleTopic}>
@@ -78,11 +82,9 @@ class Form extends Component {
                             <option value='Vue'>Vue</option>
                         </select>
                     </div>
-
                     <div>
                     <input type="submit"/>
-                    </div>
-                    
+                    </div>   
                 </form>
             </div>
         );
