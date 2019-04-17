@@ -9,7 +9,20 @@ import "../../../node_modules/jquery/dist/jquery.min.js";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 class Navigation extends Component {
+    constructor(props){
+        super(props);
 
+        this.state= {
+            token: ''
+        }
+        
+    }
+
+    componentDidMount(){
+        const key = localStorage.getItem("authKey");
+        this.setState({token:key})
+    }
+    
     render() {
         return(
         <Router>
@@ -27,9 +40,12 @@ class Navigation extends Component {
                         <li className="nav-item">
                             <Link className='navbar-brand' to='/topics'>TOPICS</Link>
                         </li>
+                        { !this.state.token ?
                         <li className="nav-item">
                             <Link className='navbar-brand' to='/register'>REGISTER</Link>
-                        </li>
+                        </li> : ''
+                        }
+                        
                         <li className="nav-item">
                             <Link className='navbar-brand' to='/about'>ABOUT</Link>  
                         </li>

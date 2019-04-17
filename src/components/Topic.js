@@ -8,14 +8,50 @@ class Topic extends Component {
         <div className='poller'>
         <h2 className='text-center'>Topics</h2>
         <div className='container'>
-            <ul>
-                <li>Our trip to kerala, places to choose from</li>
-                <li>Frinds birthday party, restaurtants to choose from</li>
-                <li>Party wear, designs to choose from</li>
-                <li>Languages to choose from for best performance</li>
-                <li>Best football league in the world</li>
-                <li>Best brand of ice cream</li>
-            </ul>
+           
+                <div className='row question'>
+                    <div className='col-lg-10'>
+                        question goes here
+                    </div>
+                    <div className='col-lg-2'>
+                       <div className='row question-stats'>
+                            <div className='col-lg-4 text-center'>Views <p>56</p></div>
+                            <div className='col-lg-4 text-center'>Votes <p>512</p></div>
+                       </div>
+                    </div>
+                    
+                </div>
+                <p className='text-left q-time'>asked 12 min ago</p>
+                <hr />
+                <div className='row question'>
+                    <div className='col-lg-10'>
+                        question goes here
+                    </div>
+                    <div className='col-lg-2'>
+                       <div className='row question-stats'>
+                            <div className='col-lg-4 text-center'>Views <p>56</p></div>
+                            <div className='col-lg-4 text-center'>Votes <p>512</p></div>
+                       </div>
+                    </div>
+                    
+                </div>
+                <p className='text-left q-time'>asked 12 min ago</p>
+                <hr />
+                <div className='row question'>
+                    <div className='col-lg-10'>
+                        question goes here
+                    </div>
+                    <div className='col-lg-2'>
+                       <div className='row question-stats'>
+                            <div className='col-lg-4 text-center'>Views <p>56</p></div>
+                            <div className='col-lg-4 text-center'>Votes <p>512</p></div>
+                       </div>
+                    </div>
+                    
+                </div>
+                <p className='text-left q-time'>asked 12 min ago</p>
+                <hr />
+            
         </div>
         </div>
         );

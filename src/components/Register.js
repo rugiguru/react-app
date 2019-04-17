@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import "./../Login.css";
+import axios from 'axios';
 
 export default class Register extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.signin = this.signin.bind(this);
     this.state = { flashbox: false, name:'' }
+  }
+
+  componentDidMount(){
+    const key = localStorage.getItem("authKey");
+    if(key){
+      this.props.history.push('./topics')
+    }
   }
 
   handleSubmit = event => {
@@ -29,7 +37,8 @@ export default class Register extends Component {
   render() {
     
     return (
-        <div className="App container" style={{width:'30%'}}>
+        
+        <div className="App container poller" style={{width:'30%'}}>
             
           <div className={this.state.flashbox ?'fadeIn':'fadeOut'}>
             <p>Hi Welcome!  </p>
@@ -52,6 +61,7 @@ export default class Register extends Component {
            
           </div>
         </div>
+        
     );
 }
 }
