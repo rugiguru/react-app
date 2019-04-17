@@ -1,0 +1,19 @@
+body {
+    margin: 0px;
+}
+
+.main-text {
+    font-weight: bolder;
+}
+
+.text-center {
+    text-align: unset;
+}
+
+.poller {
+    padding: 20px;
+}
+
+.text-size{
+    color:red;
+}

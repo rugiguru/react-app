@@ -37,24 +37,25 @@ class Form extends Component {
         var headers = {
             'Accept': 'application/json'
         }
+        
         axios.post('http://localhost:8000/api/login', {
             email: this.state.username,
             password: this.state.password
           })
-          .then(res => {
-
-            if(res.data.status == 1){
-              localStorage.setItem("authKey", res.data.token);
-              this.setState({"authKey":res.data.token});
+          .then(response => {
+                console.log(response.data.status);
+            if(response.data.status == 1){
+              localStorage.setItem("authKey", response.data.token);
+              this.setState({"authKey":response.data.token});
               this.setState({"error":0,"message":""});
               this.props.history.push("/languages");
             } else {
-              this.setState({"error":1,"message":res.data.message});
+                alert('error')
+              this.setState({"error":1,"message":response.data.message});
             }
           }).catch((error) => {
             this.setState({"error":1,"message":"Unable to Authenticate"});
           });
-
     }
     render() { 
         return (
