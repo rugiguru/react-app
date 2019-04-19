@@ -3,9 +3,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
 
-function authRedirect() {
-    console.log('auth redirect');
-}
 
 const Common = {
     request: (method, url, data)=> {
@@ -48,6 +45,8 @@ const Common = {
                                 return res;
                             }
 
+                        } else {
+                            this.PaymentResponse.history.push('/login')
                         }
                     }).catch(e=> {
 

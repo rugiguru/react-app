@@ -58,6 +58,12 @@ body {
   }
 
  .struck {
+    width: 18%;
+    position: fixed;
+    top: 50;
+ }
+
+ .struck-left{
     width: 13%;
     position: fixed;
     top: 50;
@@ -67,4 +73,14 @@ body {
     padding-right: 150px;
     padding-left: 150px;
     padding-top: 70px;
+  }
+
+  .text-bold {
+      font-weight: bold;
+  }
+
+  .side-head{
+      background-color: #efefef;
+      border-radius: .3rem;
+      height: 30px;;
   }

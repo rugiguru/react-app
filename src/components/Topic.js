@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import Common from './Common';
+import axios from "axios";
+
 
 class Topic extends Component {
 
@@ -15,15 +17,17 @@ class Topic extends Component {
       }
 
     getAllTopics() {
-        Common.request(
-          "get",
-          "http://localhost:8000/api/topics"
+        axios.get(
+          "http://localhost:8000/api/topics",
+          "get"
         )
           .then(res => {
             if (res.data && res.data.status == 1) {
               const topics = res.data.data;
               this.setState({ topics: topics, hasMoreItems:false });
               
+            } else {
+              this.props.history.push('/login')
             }
           })
           .catch(e => {});
@@ -54,19 +58,30 @@ class Topic extends Component {
            );}); 
         return(
             <div className='module-topic'>
-            <h2 className='text-center user'>
-            Topics
-            <button className="btn btn-success btn-sm pull-right">Create new topic</button>
-            </h2>
+           
             
             <div className='row'>
             <div className='col-lg-2'>
-              <div class="panel panel-success struck" >
-                <div class="panel-heading text-center" style={{backgroundColor:'#efefef', borderRadius: '.5rem'}}>Recently Viewed</div>
-                <div class="panel-body"></div>
+              <div class="panel panel-success struck-left" >
+                <div class="panel-heading text-center text-bold side-head" >Categories</div>
+                <div class="panel-body"> 
+                <ul>
+                  <li>dfdf </li>
+                  <li>dfdf fvd</li>
+                  <li>rt rt </li>
+                  <li>dff fgfg</li>
+                </ul> </div>
               </div>
             </div>
-            <div className='col-lg-8'>
+            <div className='col-lg-7'>
+            <div>
+              <h2 className="text-center">Top Feeds</h2>
+              <div className="text-right">
+                <button className="btn btn-success">Create Feed</button>
+              </div>
+            </div>
+            <hr />
+            
             <InfiniteScroll pageStart={0} loadMore={this.getAllTopics} hasMore={this.state.hasMoreItems}
                         loader={<div className="loader" key={0}>Loading ...</div>} >  
                 <div className="tracks">
@@ -74,10 +89,15 @@ class Topic extends Component {
                 </div>
            </InfiniteScroll>
             </div>
-            <div className='col-lg-2'>
+            <div className='col-lg-3'>
             <div class="panel panel-success struck" >
-                <div class="panel-heading text-center" style={{backgroundColor:'#efefef', borderRadius: '.5rem'}}>Most Voted</div>
-                <div class="panel-body"></div>
+                <div class="panel-heading text-center text-bold side-head" >Most Voted Feeds</div>
+                <div class="panel-body text-left"><ul>
+                  <li>dfdf </li>
+                  <li>dfdf fvd</li>
+                  <li>rt rt </li>
+                  <li>dff fgfg</li>
+                </ul></div>
               </div>
             </div>
             </div>

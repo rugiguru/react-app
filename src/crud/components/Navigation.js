@@ -13,7 +13,7 @@ class Navigation extends Component {
         super(props);
 
         this.state= {
-            token: ''
+            token: null
         }
         
     }

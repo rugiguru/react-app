@@ -47,7 +47,7 @@ export default class Login extends Component {
 
   render() {
     return (
-        <div className="App container" style={{width:'30%'}}>
+        <div className="App container poller" style={{width:'30%'}}>
             
           <div className={this.state.flashbox ?'fadeIn':'fadeOut'}>
             {this.state.flashbox ? <p>{this.state.message}</p> : ''} 
