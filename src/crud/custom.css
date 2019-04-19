@@ -11,7 +11,7 @@ body {
 }
 
 .poller {
-    padding: 20px;
+    padding: 70px;
 }
 
 .text-size{
@@ -40,5 +40,31 @@ body {
 }
 
 .q-time{
-    font-size: 10px;
+    font-size: 13px;
 } 
+
+.logo p {
+    /* other styles goes here... */
+    display: inline-block;
+    vertical-align: top;
+}
+
+.user {
+    color: green;
+}
+
+.verticalLine {
+    border-left:  0.5px solid black;
+  }
+
+ .struck {
+    width: 13%;
+    position: fixed;
+    top: 50;
+ }
+
+  .module-topic{
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-top: 70px;
+  }

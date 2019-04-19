@@ -27,7 +27,7 @@ class Navigation extends Component {
         return(
         <Router>
             <div className='navigate'>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
                 <Link className='navbar-brand main-text' to='/' style={{color: 'green',fontFamily:'Helvetica',fontWeight:'bolder'}}>LivePoller</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -49,6 +49,13 @@ class Navigation extends Component {
                         <li className="nav-item">
                             <Link className='navbar-brand' to='/about'>ABOUT</Link>  
                         </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                    <li className="nav-item">
+                            <Link className='navbar-brand' to='/about'></Link>  
+                    </li>
                     </ul>
                 </div>     
             </nav>
