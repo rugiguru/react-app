@@ -3,6 +3,7 @@ import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './../../Home'
 import Login from './../../Login'
 import Topic from './../../components/Topic'
+import CreateTopic from './../../components/CreateFeed'
 import Register from './../../components/Register'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../node_modules/jquery/dist/jquery.min.js";
@@ -52,7 +53,7 @@ class Navigation extends Component {
 
                     </ul>
 
-                    <ul class="navbar-nav ml-auto">
+                    <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                             <Link className='navbar-brand' to='/about'></Link>  
                     </li>
@@ -65,7 +66,7 @@ class Navigation extends Component {
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
             <Route path="/about"/>
-            <Route path="/topics" />
+            <Route path="/create-feed" component={CreateTopic}/>
             </div>
         </Router>  
         );

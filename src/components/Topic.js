@@ -2,18 +2,26 @@ import React, {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import Common from './Common';
 import axios from "axios";
-
+import '../components/CreateFeed';
 
 class Topic extends Component {
 
     constructor(props){
         super(props);
         this.getAllTopics = this.getAllTopics.bind(this);
-        this.state = { topics : [], hasMoreItems: true, }
+        this.crearteFeed = this.crearteFeed.bind(this);
+        this.state = { 
+          topics : [], 
+          hasMoreItems: true,
+        }
     }
 
     componentDidMount() {
         this.getAllTopics();
+      }
+
+      crearteFeed(){
+        this.props.history.push('/create-feed')
       }
 
     getAllTopics() {
@@ -34,6 +42,8 @@ class Topic extends Component {
       }
     
     render(){
+      let smClose = () => this.setState({ smShow: false });
+      let lgClose = () => this.setState({ lgShow: false });
         var items = [];
         this.state.topics.map(topic => {
             items.push( 
@@ -62,9 +72,9 @@ class Topic extends Component {
             
             <div className='row'>
             <div className='col-lg-2'>
-              <div class="panel panel-success struck-left" >
-                <div class="panel-heading text-center text-bold side-head" >Categories</div>
-                <div class="panel-body"> 
+              <div className="panel panel-success struck-left" >
+                <div className="panel-heading text-center text-bold side-head" >Categories</div>
+                <div className="panel-body"> 
                 <ul>
                   <li>dfdf </li>
                   <li>dfdf fvd</li>
@@ -77,7 +87,7 @@ class Topic extends Component {
             <div>
               <h2 className="text-center">Top Feeds</h2>
               <div className="text-right">
-                <button className="btn btn-success">Create Feed</button>
+                <button className="btn btn-success" onClick={this.crearteFeed}>Create Feed</button>
               </div>
             </div>
             <hr />
@@ -90,9 +100,9 @@ class Topic extends Component {
            </InfiniteScroll>
             </div>
             <div className='col-lg-3'>
-            <div class="panel panel-success struck" >
-                <div class="panel-heading text-center text-bold side-head" >Most Voted Feeds</div>
-                <div class="panel-body text-left"><ul>
+            <div className="panel panel-success struck" >
+                <div className="panel-heading text-center text-bold side-head" >Most Voted Feeds</div>
+                <div className="panel-body text-left"><ul>
                   <li>dfdf </li>
                   <li>dfdf fvd</li>
                   <li>rt rt </li>
@@ -101,7 +111,6 @@ class Topic extends Component {
               </div>
             </div>
             </div>
-            
             </div>
            
           

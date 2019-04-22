@@ -30,11 +30,11 @@ export default class Login extends Component {
       password: this.state.password
     })
     .then(res => {
-
       if(res.data.status == 1){
         localStorage.setItem("authKey", res.data.token);
         this.setState({"authKey":res.data.token});
         this.setState({"error":0,"message":""});
+        window.location.reload();
         this.props.history.push("/topics");
       } else {
         this.setState({"error":1,"message":res.data.message, flashbox:'true'});
