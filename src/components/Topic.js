@@ -48,7 +48,7 @@ class Topic extends Component {
         this.state.topics.map(topic => {
             items.push( 
             <div  key={topic.id}>
-            <div className='row question'>
+            <div className='row question '>
                 <div className='col-lg-10' >
                     {topic.title}
                 </div>
@@ -68,13 +68,11 @@ class Topic extends Component {
            );}); 
         return(
             <div className='module-topic'>
-           
-            
             <div className='row'>
             <div className='col-lg-2'>
               <div className="panel panel-success struck-left" >
-                <div className="panel-heading text-center text-bold side-head" >Categories</div>
-                <div className="panel-body"> 
+                <div className="panel-heading text-center text-bold side-head  module-category" >Categories</div>
+                <div className="panel-body category-list"> 
                 <ul>
                   <li>dfdf </li>
                   <li>dfdf fvd</li>
@@ -85,8 +83,8 @@ class Topic extends Component {
             </div>
             <div className='col-lg-7'>
             <div>
-              <h2 className="text-center">Top Feeds</h2>
-              <div className="text-right">
+              <h2 className="text-center ">Top Feeds</h2>
+              <div className="text-right top-feeds">
                 <button className="btn btn-success" onClick={this.crearteFeed}>Create Feed</button>
               </div>
             </div>

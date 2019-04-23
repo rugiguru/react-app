@@ -38,7 +38,7 @@ export default class Register extends Component {
     
     return (
         
-        <div className="App container poller" style={{width:'30%'}}>
+        <div className="App container poller module-register" >
             
           <div className={this.state.flashbox ?'fadeIn':'fadeOut'}>
             <p>Hi Welcome!  </p>

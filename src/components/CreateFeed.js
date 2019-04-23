@@ -5,37 +5,26 @@ import {Form} from "react-bootstrap";
 class CreateFeed extends Component {
     render(){
         return(
-            <div className='poller container'>
+            <div className='module-createFeed'>
+            <h4 className='text-center'>Create Feed</h4>
+            <div className='container '>
                 <Form>
                 <Form.Group controlId="exampleForm.ControlInput1">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="name@example.com" />
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control type="text" placeholder="Title" />
                 </Form.Group>
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Label>Example select</Form.Label>
-                    <Form.Control as="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="exampleForm.ControlSelect2">
-                    <Form.Label>Example multiple select</Form.Label>
-                    <Form.Control as="select" multiple>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </Form.Control>
-                </Form.Group>
+               
                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Example textarea</Form.Label>
-                    <Form.Control as="textarea" rows="3" />
+                    <Form.Label>Details</Form.Label>
+                    <Form.Control as="textarea" rows="10" />
                 </Form.Group>
-                </Form>;
+
+                <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Label>options for voting</Form.Label>
+                    <Form.Control type="text" placeholder="Options for polling Ex :- Reebok, Nike, Puma (Values must be Comma separated as shown)" />
+                </Form.Group>
+                </Form>
+                </div>
             </div>
         )
     }

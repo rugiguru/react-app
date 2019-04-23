@@ -20,7 +20,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className='poller'>
+      <div className='poller  module-home'>
           <div className="container">
               <div className="row">
                   <div className="col-lg-12 text-center">
@@ -33,7 +33,7 @@ class Home extends Component {
           </div>
 
           <div style={{paddingTop:'10px'}}>
-          <div className="container" >
+          <div className="container module-home" >
               <div className="row" >
                   <div className="col-lg-12 text-center">
                     <h1 className="font-weight-light">Most Voted Topics</h1>
