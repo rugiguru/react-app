@@ -6,7 +6,7 @@ export default class Login extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
    
-    this.state = { flashbox: false, name:'' }
+    this.state = { flashbox: false, name:'', emailError : false, passwordError : false }
   }
 
   componentDidMount(){
@@ -24,6 +24,20 @@ export default class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    if(!this.state.email){
+      this.setState({emailError: true});
+      return false;
+    }
+
+    if(!this.state.password){
+      this.setState({emailError: false, passwordError : true});
+      return false;
+    }
+
+    if( this.state.email && this.state.password ) {
+      this.setState({emailError: false, passwordError : false});
+    }
+
     axios.post(`http://localhost:8000/api/login`,
     {
       email: this.state.email,
@@ -47,18 +61,24 @@ export default class Login extends Component {
 
   render() {
     return (
-        <div className="App container poller module-login" >
+     
+        <div className="App container  poller module-login" >
             <p>Log In</p>
           <div>
             <form onSubmit={this.handleSubmit}>
               <label>Email</label>
               <input type="email" id="email" name="email" placeholder="Your email" onChange={this.handleChange} />
+              {this.state.emailError ? <small className='error-class'>Email is required</small> : ''} <br />
               <label>Password</label>
               <input type="text" id="password" name="password" placeholder="Your Password.." onChange={this.handleChange}/>
-              { this.state.flashbox ? (<input type="submit" value="Log out" />) : <input type="submit" value="Log in" /> }
+              {this.state.passwordError ? <small className='error-class'>Password is required</small> : ''} <br />
+              {this.state.error ? <small className='error-class'>{this.state.message}</small> : ''} <br />
+              <input type="submit" value="Log in" />
+              
             </form>
           </div>
         </div>
+      
     );
 }
 }

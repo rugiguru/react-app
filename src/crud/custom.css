@@ -97,6 +97,10 @@ body {
     width: 30%;
   }
 
+  .error-class {
+      color: red;
+  }
+
   @media (max-width: 768px) { /* mobile view */
     .struck {
       position: relative;

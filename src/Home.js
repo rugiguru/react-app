@@ -25,7 +25,7 @@ class Home extends Component {
               <div className="row">
                   <div className="col-lg-12 text-center">
                     <h1 className="font-weight-light">Welcome to
-                    !</h1>
+                    Live-Poller!</h1>
                     <p className='text-center'>Struck deciding some thing? Raise a topic, share and collect the polls to decide among your team,friends, family, collegues etc...</p>
                     <button className="btn btn-success" onClick={this.getStarted}>Get Started!</button>
                   </div>
