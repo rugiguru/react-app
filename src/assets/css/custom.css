@@ -101,6 +101,12 @@ body {
       color: red;
   }
 
+  #ControlInput3 {
+      width: 10%;
+      height: 1%;
+      text-align: center;
+  }
+
   @media (max-width: 768px) { /* mobile view */
     .struck {
       position: relative;
@@ -108,7 +114,7 @@ body {
     }
     .struck-left {
         position: relative;
-        width: 70%;
+        width: 65%;
     }
 
     .question {
@@ -122,11 +128,13 @@ body {
     .module-login {
         width: 100%;
       }
+      /*issue  here nav bar */
     .module-topic{
         width: 150%;
         padding-right: 0px;
         padding-left: 10px;
     }
+    /*issue ends here */
     .top-feeds{
         text-align: left;
     }
@@ -140,4 +148,23 @@ body {
     .module-home h1 {
         font-size: 25px;
     }
+
+    #ControlInput3 {
+        width: 40%;
+        height: 1%;
+        text-align: center;
+    }
+    .votes{
+        
+        padding-right: 200px;
+    }
+    .views{
+        text-align: right;
+        padding-right: 200px;
+        
+    }
+    .module-title{
+        width: 100%;
+    }
+
   }

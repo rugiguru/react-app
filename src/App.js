@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import AppCrud from "./crud/App";
+import React, {Component } from "react";
+import Navigation from "./components/Navigation";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../node_modules/jquery/dist/jquery.min.js";
-import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
+import "jquery/dist/jquery.min";
+import "bootstrap/dist/js/bootstrap.min";
 
- 
-class App extends Component {
-  render() {
-    return (
-      
-        <AppCrud />
-      
-    );
-  }
+
+
+class AppCrud extends Component {
+    render() {
+        return (
+            <div>
+                <Navigation />
+            </div>
+        )
+    }
 }
- 
-export default App;
+
+export default AppCrud;

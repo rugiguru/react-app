@@ -48,14 +48,14 @@ class Topic extends Component {
         this.state.topics.map(topic => {
             items.push( 
             <div  key={topic.id}>
-            <div className='row question '>
-                <div className='col-lg-10' >
+            <div className='row question'>
+                <div className='col-lg-10 module-title' >
                     {topic.title}
                 </div>
                 <div className='col-lg-2'>
                    <div className='row question-stats'>
-                        <div className='col-lg-4 text-center'>Views <p>{topic.views}</p></div>
-                        <div className='col-lg-4 text-center'>Votes <p>{topic.votes}</p></div>
+                        <div className='col-lg-4 text-center views'>Views <p>{topic.views}</p></div>
+                        <div className='col-lg-4 text-center votes'>Votes <p>{topic.votes}</p></div>
                    </div>
                 </div> 
             </div>

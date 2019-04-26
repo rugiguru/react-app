@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import './crud/custom.css'
+import './assets/css/custom.css'
  
 ReactDOM.render(
   <App/>, 

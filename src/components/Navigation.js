@@ -1,13 +1,13 @@
 import React , {Component} from "react";
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './../../Home'
-import Login from './../../Login'
-import Topic from './../../components/Topic'
-import CreateTopic from './../../components/CreateFeed'
-import Register from './../../components/Register'
+import Home from './Home'
+import Login from './Login'
+import Topic from './Topic'
+import CreateTopic from './CreateFeed'
+import Register from './Register'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../../../node_modules/jquery/dist/jquery.min.js";
-import "../../../node_modules/bootstrap/dist/js/bootstrap.min.js";
+import "jquery/dist/jquery.min";
+import "bootstrap/dist/js/bootstrap.min";
 
 class Navigation extends Component {
     constructor(props){
