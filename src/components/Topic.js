@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import Common from './Common';
 import axios from "axios";
 import '../components/CreateFeed';
 
@@ -30,7 +29,7 @@ class Topic extends Component {
           "get"
         )
           .then(res => {
-            if (res.data && res.data.status == 1) {
+            if (res.data && res.data.status === 1) {
               const topics = res.data.data;
               this.setState({ topics: topics, hasMoreItems:false });
               
@@ -42,8 +41,6 @@ class Topic extends Component {
       }
     
     render(){
-      let smClose = () => this.setState({ smShow: false });
-      let lgClose = () => this.setState({ lgShow: false });
         var items = [];
         this.state.topics.map(topic => {
             items.push( 
@@ -71,7 +68,7 @@ class Topic extends Component {
             <div className='row'>
             <div className='col-lg-2'>
               <div className="panel panel-success struck-left" >
-                <div className="panel-heading text-center text-bold side-head  module-category" >Categories</div>
+                <div className="panel-heading text-center text-bold side-head  module-category" >Watch Tags</div>
                 <div className="panel-body category-list"> 
                 <ul>
                   <li>dfdf </li>
@@ -83,9 +80,9 @@ class Topic extends Component {
             </div>
             <div className='col-lg-7'>
             <div>
-              <h2 className="text-center ">Top Feeds</h2>
+              <h2 className="text-center ">Explore Ideas</h2>
               <div className="text-right top-feeds">
-                <button className="btn btn-success" onClick={this.crearteFeed}>Create Feed</button>
+                <button className="btn btn-success" onClick={this.crearteFeed}>Share</button>
               </div>
             </div>
             <hr />
@@ -99,7 +96,7 @@ class Topic extends Component {
             </div>
             <div className='col-lg-3'>
             <div className="panel panel-success struck" >
-                <div className="panel-heading text-center text-bold side-head" >Most Voted Feeds</div>
+                <div className="panel-heading text-center text-bold side-head" >Most Voted</div>
                 <div className="panel-body text-left"><ul>
                   <li>dfdf </li>
                   <li>dfdf fvd</li>

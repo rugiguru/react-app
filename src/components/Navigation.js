@@ -29,7 +29,7 @@ class Navigation extends Component {
         <Router>
             <div className='navigate'>
             <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
-                <Link className='navbar-brand main-text' to='/' style={{color: 'green',fontFamily:'Helvetica',fontWeight:'bolder'}}>LivePoller</Link>
+                <Link className='navbar-brand main-text' to='/' style={{color: 'green',fontFamily:'Helvetica',fontWeight:'bolder'}}>ideasPoller</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -39,7 +39,7 @@ class Navigation extends Component {
                             <Link className='navbar-brand' to='/' >HOME</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className='navbar-brand' to='/topics'>TOPICS</Link>
+                            <Link className='navbar-brand' to='/topics'>BROWSE</Link>
                         </li>
                         { !this.state.token ?
                         <li className="nav-item">
