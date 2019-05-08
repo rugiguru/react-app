@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import appreciate from '../assets/images/like.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSync } from '@fortawesome/free-solid-svg-icons'
 
  
 class Home extends Component {
@@ -9,27 +10,30 @@ class Home extends Component {
 
     this.getStarted = this.getStarted.bind(this);
     this.register = this.register.bind(this);
+    this.browse = this.browse.bind(this);
   }
 
   getStarted(){
-      this.props.history.push('/register')
+    this.props.history.push('/register')
   }
 
   register(){
     this.props.history.push('/register')
   }
 
+  browse(){
+    this.props.history.push('/topics')
+  }
 
   render() {
     return (
       <div>
         
-      <div className='poller  module-home'>
-          <div className="container welcome">
+      <div className='poller module-home'>
+          <div className="container">
               <div className="row">
                   <div className="col-lg-12 text-center">
-                    <h1 className="font-weight-light">Welcome to
-                    ideas-poller!</h1>
+                    <h1 className="font-weight-light"></h1>
                     <p className='text-center'>Start up ideas from within</p>
                     <button className="btn btn-success" onClick={this.getStarted}>Get Started!</button>
                   </div>
@@ -45,7 +49,7 @@ class Home extends Component {
                    
                     <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <p>by Anonymous</p>
-                    <p>Follow </p>
+                    <p style={{color:'#28a745'}}>following <FontAwesomeIcon icon={faSync} color='#28a745'/></p>
                     <button className="btn btn-success no-border btn-sm">Read</button>
                   </div>
               </div>
@@ -57,7 +61,7 @@ class Home extends Component {
                   
                     <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <p>by Anonymous</p>
-                    <p>Follow </p>
+                    <p>follow <FontAwesomeIcon icon={faSync} /></p>
                     <button className="btn btn-success no-border btn-sm">Read</button>
                   </div>
               </div>
@@ -69,7 +73,7 @@ class Home extends Component {
                     
                     <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <p>by Anonymous</p>
-                    <p>Follow </p>
+                    <p style={{color:'#28a745'}}>following <FontAwesomeIcon icon={faSync} color='#28a745'/></p>
                     <button className="btn btn-success no-border btn-sm">Read</button>
                   </div>
               </div>
@@ -81,12 +85,12 @@ class Home extends Component {
                    
                     <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     <p>by Anonymous</p>
-                    <p>Appreciate </p>
+                    <p>follow <FontAwesomeIcon icon={faSync} /></p>
                     <button className="btn btn-success no-border btn-sm">Read</button>
                   </div>
               </div>
               <br />
-              <button style={{float: 'right', border:'0px'}} className='bt-sm'>View More >></button>
+              <button style={{float: 'right', border:'0px'}} onClick={this.browse} className='bt-sm'>View More >></button>
             </div>
               
           </div>
@@ -119,9 +123,9 @@ class Home extends Component {
       </div>
         <br />
         <br />
-
         <br />
-        <br /><br />
+        <br />
+        <br />
         <br />
 
         <div className="footer">

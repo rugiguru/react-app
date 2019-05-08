@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import axios from "axios";
 import '../components/CreateFeed';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTags, faSync } from '@fortawesome/free-solid-svg-icons'
 
 class Topic extends Component {
 
@@ -52,7 +54,7 @@ class Topic extends Component {
                 <div className='col-lg-2'>
                    <div className='row question-stats'>
                         <div className='col-lg-4 text-center views'>Views <p>{topic.views}</p></div>
-                        <div className='col-lg-4 text-center votes'>Votes <p>{topic.votes}</p></div>
+                        <div className='col-lg-4 text-center votes'>following <p>{topic.votes}</p></div>
                    </div>
                 </div> 
             </div>
@@ -68,7 +70,7 @@ class Topic extends Component {
             <div className='row'>
             <div className='col-lg-2'>
               <div className="panel panel-success struck-left" >
-                <div className="panel-heading text-center text-bold side-head  module-category" >Watch Tags</div>
+                <div className="panel-heading text-center text-bold side-head  module-category" >Watch Tags <FontAwesomeIcon icon={faTags} color='#28a745'/></div>
                 <div className="panel-body category-list"> 
                 <ul>
                   <li>dfdf </li>
@@ -96,7 +98,7 @@ class Topic extends Component {
             </div>
             <div className='col-lg-3'>
             <div className="panel panel-success struck" >
-                <div className="panel-heading text-center text-bold side-head" >Most Voted</div>
+                <div className="panel-heading text-center text-bold side-head" >Most followed <FontAwesomeIcon icon={faSync} color='#28a745'/></div>
                 <div className="panel-body text-left"><ul>
                   <li>dfdf </li>
                   <li>dfdf fvd</li>

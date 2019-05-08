@@ -46,11 +46,9 @@ class Navigation extends Component {
                             <Link className='navbar-brand' to='/register'>REGISTER</Link>
                         </li> : ''
                         }
-                        
                         <li className="nav-item">
                             <Link className='navbar-brand' to='/about'>ABOUT</Link>  
                         </li>
-
                     </ul>
 
                     <ul className="navbar-nav ml-auto">
