@@ -67,7 +67,7 @@ export default class Login extends Component {
           <div class="container">
 
       <form class="form-signin" onSubmit={this.handleSubmit}>
-        <h2 class="form-signin-heading">Login</h2>
+        <h2 class="form-signin-heading text-center">Login</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name='email' id="inputEmail" class="form-control" placeholder="Email address" onChange={this.handleChange} />
         {this.state.emailError ? <small className='error-class'>Email is required</small> : ''} <br />

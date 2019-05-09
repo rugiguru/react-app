@@ -60,7 +60,7 @@ class Navigation extends Component {
             </nav>
                 <link to='/login'></link>
             <Route exact path="/" component={Home}/>
-            <Route  path="/topics" component={Topic} />
+            <Route path="/topics" component={Topic} />
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
             <Route path="/about"/>

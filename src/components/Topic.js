@@ -21,7 +21,7 @@ class Topic extends Component {
         this.getAllTopics();
       }
 
-      crearteFeed(){
+    crearteFeed(){
         this.props.history.push('/create-feed')
       }
 

@@ -1,17 +1,40 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSync } from '@fortawesome/free-solid-svg-icons'
+import axios from "axios";
+import Footer from './Footer'
+import HomeTopic from './HomeTopic';
+import Subscribe from './Subscribe'
+
 
  
 class Home extends Component {
-
   constructor(){
     super();
-
     this.getStarted = this.getStarted.bind(this);
     this.register = this.register.bind(this);
     this.browse = this.browse.bind(this);
+    this.getAllTopics = this.getAllTopics.bind(this);
+    this.state = {
+      topics : []
+    }
   }
+
+  componentDidMount()
+  {
+   
+    this.getAllTopics();
+  }
+
+  getAllTopics() {
+      axios.get("http://localhost:8000/api/get-home-ideas")
+        .then(res => {
+          if (res.data && res.data.status === 1) {
+            const topics = res.data.data;
+            this.setState({ topics: topics, hasMoreItems:false });
+           
+          } 
+        })
+        .catch(e => {});
+    }
 
   getStarted(){
     this.props.history.push('/register')
@@ -34,104 +57,35 @@ class Home extends Component {
               <div className="row">
                   <div className="col-lg-12 text-center">
                     <h1 className="font-weight-light"></h1>
-                    <p className='text-center'>Start up ideas from within</p>
+                    <p className='text-center'>djkdh djkfhfj</p>
                     <button className="btn btn-success" onClick={this.getStarted}>Get Started!</button>
                   </div>
               </div>
           </div>
-      </div> 
+      </div>
+
         <hr style={{width:'75%'}}/>
+
       <div className='container module-ideas'>
           <div className='row'>
-            <div className='col-md-3'>
-              <div className="card">
-                  <div className="card-body">
-                   
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <p>by Anonymous</p>
-                    <p style={{color:'#28a745'}}>following <FontAwesomeIcon icon={faSync} color='#28a745'/></p>
-                    <button className="btn btn-success no-border btn-sm">Read</button>
-                  </div>
-              </div>
-            </div>
-
-            <div className='col-md-3'>
-              <div className="card">
-                  <div className="card-body">
-                  
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <p>by Anonymous</p>
-                    <p>follow <FontAwesomeIcon icon={faSync} /></p>
-                    <button className="btn btn-success no-border btn-sm">Read</button>
-                  </div>
-              </div>
-            </div>
-
-            <div className='col-md-3'>
-              <div className="card">
-                  <div className="card-body">
-                    
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <p>by Anonymous</p>
-                    <p style={{color:'#28a745'}}>following <FontAwesomeIcon icon={faSync} color='#28a745'/></p>
-                    <button className="btn btn-success no-border btn-sm">Read</button>
-                  </div>
-              </div>
-            </div>
-
-            <div className='col-md-3'>
-              <div className="card">
-                  <div className="card-body">
-                   
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <p>by Anonymous</p>
-                    <p>follow <FontAwesomeIcon icon={faSync} /></p>
-                    <button className="btn btn-success no-border btn-sm">Read</button>
-                  </div>
-              </div>
-              <br />
-              <button style={{float: 'right', border:'0px'}} onClick={this.browse} className='bt-sm'>View More >></button>
-            </div>
-              
+          {
+            this.state.topics.map(topic => (
+              <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} key={topic.id}/>
+            ))
+          }
           </div>
       </div>
+
       <hr style={{width:'75%'}}/>
-      
-      <div className='conatiner module-two'>
-          <div className='row'>
-            <div className='col-sm-6 subscribe'>
-            <div className="card">
-                <h5 className="card-header info-color white-text text-center py-4">
-                    <strong>Subscribe</strong>
-                </h5>
-                <div className="card-body px-lg-5">
-                  <form className="text-center" >
-                      <p>Join our mailing list. We write rarely, but only the best content.</p>
-                      <div className="md-form">
-                          <input type="email" id="materialSubscriptionFormEmail" className="form-control" />
-                          <label >E-mail</label>
-                      </div>
-                      <button className="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Subscribe</button>
-                  </form>
-              </div>
-            </div>
-            </div>
-            <div className='col-sm-6'>
-            </div>
-          
-          </div>
-      </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
 
-        <div className="footer">
-          <p>© 2018 Copyright: ideaspoller.com</p>
-        </div>
-
+     <Subscribe />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />  
+<Footer />
 </div>
     );
   }
