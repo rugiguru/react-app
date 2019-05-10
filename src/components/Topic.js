@@ -90,7 +90,7 @@ class Topic extends Component {
             <hr />
             
             <InfiniteScroll pageStart={0} loadMore={this.getAllTopics} hasMore={this.state.hasMoreItems}
-                        loader={<div className="loader" key={0}>Loading ...</div>} >  
+                        loader={<div className="loader" key={0}></div>} >  
                 <div className="tracks">
                     {items}
                 </div>

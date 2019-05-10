@@ -3,6 +3,7 @@ import axios from "axios";
 import Footer from './Footer'
 import HomeTopic from './HomeTopic';
 import Subscribe from './Subscribe'
+import '../assets/css/loader.css'
 
 
  
@@ -13,15 +14,17 @@ class Home extends Component {
     this.register = this.register.bind(this);
     this.browse = this.browse.bind(this);
     this.getAllTopics = this.getAllTopics.bind(this);
+   
     this.state = {
-      topics : []
+      topics : [], isloading : true
     }
   }
 
   componentDidMount()
   {
-   
+    this.setState({isloading:false})
     this.getAllTopics();
+    
   }
 
   getAllTopics() {
@@ -29,13 +32,14 @@ class Home extends Component {
         .then(res => {
           if (res.data && res.data.status === 1) {
             const topics = res.data.data;
-            this.setState({ topics: topics, hasMoreItems:false });
-           
+            this.setState({ topics: topics});
           } 
         })
         .catch(e => {});
     }
 
+    
+   
   getStarted(){
     this.props.history.push('/register')
   }
@@ -49,6 +53,7 @@ class Home extends Component {
   }
 
   render() {
+    
     return (
       <div>
         
@@ -65,12 +70,13 @@ class Home extends Component {
       </div>
 
         <hr style={{width:'75%'}}/>
+         {this.state.isloading ? <div className="loader"></div> : ''}
 
       <div className='container module-ideas'>
           <div className='row'>
           {
             this.state.topics.map(topic => (
-              <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} key={topic.id}/>
+              <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} key={topic.id} dataId={topic.id}/>
             ))
           }
           </div>
@@ -85,7 +91,7 @@ class Home extends Component {
         <br />
         <br />
         <br />  
-<Footer />
+    <Footer />
 </div>
     );
   }
