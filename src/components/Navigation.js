@@ -12,19 +12,28 @@ import "bootstrap/dist/js/bootstrap.min";
 class Navigation extends Component {
     constructor(props){
         super(props);
-
+        this.logout = this.logout.bind(this);
         this.state= {
-            token: null
-        }
-        
+            token: '', user_name : ''
+        } 
     }
 
     componentDidMount(){
         const key = localStorage.getItem("authKey");
-        this.setState({token:key})
+        let userName = localStorage.getItem('user_name');
+        if(key){
+            this.setState({token:key, user_name:userName})
+        }
+        
+    }
+
+    logout(){
+        localStorage.clear();
+        window.location.reload();
     }
     
     render() {
+        
         return(
         <Router>
             <div className='navigate'>
@@ -50,12 +59,22 @@ class Navigation extends Component {
                             <Link className='navbar-brand' to='/about'>ABOUT</Link>  
                         </li>
                     </ul>
-
+                    
+                    {this.state.token ?
                     <ul className="navbar-nav ml-auto">
-                    <li className="nav-item">
-                            <Link className='navbar-brand' to='/about'></Link>  
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style={{'paddingRight': '5em'}}>
+                            Welcome {this.state.user_name}
+                            </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">My Posts</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" onClick={this.logout}>Logout</a>
+                        </div>
+                        </li>
                     </ul>
+                    : ''}
                 </div>     
             </nav>
                 <link to='/login'></link>
@@ -65,6 +84,7 @@ class Navigation extends Component {
             <Route path="/register" component={Register}/>
             <Route path="/about"/>
             <Route path="/create-feed" component={CreateTopic}/>
+            
             </div>
         </Router>  
         );

@@ -46,6 +46,7 @@ export default class Login extends Component {
     .then(res => {
       if(res.data.status === 1){
         localStorage.setItem("authKey", res.data.token);
+        localStorage.setItem("user_name", res.data.user);
         this.setState({"authKey":res.data.token});
         this.setState({"error":0,"message":""});
         window.location.reload();
