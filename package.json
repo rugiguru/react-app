@@ -16,6 +16,7 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
+    "react-spinners": "^0.5.4",
     "redux": "^4.0.1",
     "remarkable-react": "^1.4.1"
   },

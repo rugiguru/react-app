@@ -62,15 +62,15 @@ class Navigation extends Component {
                     
                     {this.state.token ?
                     <ul className="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style={{'paddingRight': '5em'}}>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style={{'paddingRight': '5em'}}>
                             Welcome {this.state.user_name}
                             </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <a class="dropdown-item" href="#">My Posts</a>
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" onClick={this.logout}>Logout</a>
+                        <div className="dropdown-menu">
+                            <a className="dropdown-item" href="#">Profile</a>
+                            <a className="dropdown-item" href="#">My Posts</a>
+                            <a className="dropdown-item" href="#">Settings</a>
+                            <a className="dropdown-item" onClick={this.logout}>Logout</a>
                         </div>
                         </li>
                     </ul>

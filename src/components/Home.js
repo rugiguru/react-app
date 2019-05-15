@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import { css } from '@emotion/core';
+import { RotateLoader } from 'react-spinners';
 import axios from "axios";
 import Footer from './Footer'
 import HomeTopic from './HomeTopic';
 import Subscribe from './Subscribe'
-import '../assets/css/loader.css'
 
+const override = css`
+    margin : 5px;
+    margin-top : 50px;
+
+`;
 
  
 class Home extends Component {
@@ -16,15 +22,14 @@ class Home extends Component {
     this.getAllTopics = this.getAllTopics.bind(this);
    
     this.state = {
-      topics : [], isloading : true
+      topics : [], showloader : false
     }
   }
 
   componentDidMount()
   {
-    this.setState({isloading:false})
+    this.setState({showloader:true})
     this.getAllTopics();
-    
   }
 
   getAllTopics() {
@@ -32,8 +37,9 @@ class Home extends Component {
         .then(res => {
           if (res.data && res.data.status === 1) {
             const topics = res.data.data;
-            this.setState({ topics: topics});
+            this.setState({ topics: topics, showloader:false});
           } 
+          
         })
         .catch(e => {});
     }
@@ -70,7 +76,13 @@ class Home extends Component {
       </div>
 
         <hr style={{width:'75%'}}/>
-         {this.state.isloading ? <div className="loader"></div> : ''}
+        <p style={{marginTop : '50px', marginLeft : '700px'}}><RotateLoader
+          css={override}
+          sizeUnit={"px"}
+          size={15}
+          color={'#28a745'}
+          loading={this.state.showloader}
+        /></p> 
 
       <div className='container module-ideas'>
           <div className='row'>

@@ -1,13 +1,23 @@
 import React, { Component } from "react";
+import { css } from '@emotion/core';
+import { RotateLoader } from 'react-spinners';
 import "../assets/css/Login.css";
 import axios from 'axios';
+const override = css`
+    margin : 5px;
+    margin-top : 50px;
+
+`;
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
    
-    this.state = { flashbox: false, name:'', emailError : false, passwordError : false }
+    this.state = { flashbox: false, name:'', emailError : false, passwordError : false, showloader: false }
   }
+
+  
 
   componentDidMount(){
     const key = localStorage.getItem("authKey");
@@ -23,6 +33,7 @@ export default class Login extends Component {
   }
 
   handleSubmit = event => {
+    
     event.preventDefault();
     if(!this.state.email){
       this.setState({emailError: true});
@@ -37,7 +48,7 @@ export default class Login extends Component {
     if( this.state.email && this.state.password ) {
       this.setState({emailError: false, passwordError : false});
     }
-
+    this.setState({showloader: true})
     axios.post(`http://localhost:8000/api/login`,
     {
       email: this.state.email,
@@ -52,7 +63,7 @@ export default class Login extends Component {
         window.location.reload();
         this.props.history.push("/topics");
       } else {
-        this.setState({"error":1,"message":res.data.message, flashbox:'true'});
+        this.setState({"error":1,"message":res.data.message, showloader: false});
       }
     }).catch((error) => {
       this.setState({"error":1,"message":"Unable to Authenticate"});
@@ -65,23 +76,31 @@ export default class Login extends Component {
      
        
 
-          <div class="container">
+          <div className="container">
 
-      <form class="form-signin" onSubmit={this.handleSubmit}>
-        <h2 class="form-signin-heading text-center">Login</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name='email' id="inputEmail" class="form-control" placeholder="Email address" onChange={this.handleChange} />
+      <form className="form-signin" onSubmit={this.handleSubmit}>
+        <h2 className="form-signin-heading text-center">Login</h2>
+        <label className="sr-only">Email address</label>
+        <input type="email" name='email' id="inputEmail" className="form-control" placeholder="Email address" onChange={this.handleChange} />
         {this.state.emailError ? <small className='error-class'>Email is required</small> : ''} <br />
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name='password' id="inputPassword" class="form-control" placeholder="Password" onChange={this.handleChange} />
+        <label  className="sr-only">Password</label>
+        <input type="password" name='password' id="inputPassword" className="form-control" placeholder="Password" onChange={this.handleChange} />
         {this.state.passwordError ? <small className='error-class'>Password is required</small> : ''} <br />
         {this.state.error ? <small className='error-class'>{this.state.message}</small> : ''} <br />
-        <div class="checkbox">
+        <div className="checkbox">
           <label>
             <input type="checkbox" value="remember-me" /> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+        <button className="btn btn-lg btn-success btn-block" type="submit" >{ this.state.showloader ? 'Signing In' : 'Sign in'  }</button>
+       <p style={{marginTop : '50px', marginLeft : '135px'}}><RotateLoader
+          css={override}
+          sizeUnit={"px"}
+          size={15}
+          color={'#28a745'}
+          loading={this.state.showloader}
+        /></p> 
+      
       </form>
 
     </div>

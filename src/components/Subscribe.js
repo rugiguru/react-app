@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import RecentActivity from './RecentActivity';
 import axios from 'axios';
 
 class Subscribe extends Component {
@@ -6,16 +7,13 @@ class Subscribe extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.getRecentActivity = this.getRecentActivity.bind(this);
+       
         this.state = {
-            emailError: false, email:'', recentActivity : []
+            emailError: false, email:'', message : false
         }
     }
 
-    componentDidMount()
-    {
-        this.getRecentActivity();
-    }
+    
 
     handleChange(event) {
         const inputKey = event.target.name;
@@ -29,19 +27,20 @@ class Subscribe extends Component {
           return false;
         }
 
+       let data = { email : this.state.email }
+        axios.post("http://localhost:8000/api/subscribe", data)
+          .then(res => {
+            if (res.data && res.data.status === 1) {
+              this.setState({message: res.data.message, emailError : false})
+            }  else if (res.data.status === 0) {
+              this.setState({message: res.data.message, emailError : false})
+            }
+          })
+          .catch(e => {});
 
     }
 
-    getRecentActivity() {
-        axios.get("http://localhost:8000/api/recent-activity")
-          .then(res => {
-            if (res.data && res.data.status === 1) {
-              const recentActivity = res.data.data;
-              this.setState({ recentActivity: recentActivity });
-            } 
-          })
-          .catch(e => {});
-      }
+    
 
     render(){
         return(
@@ -54,6 +53,10 @@ class Subscribe extends Component {
                     <strong>Subscribe</strong>
                 </h5>
                 <div className="card-body px-lg-5">
+                {
+                  this.state.message ? <div className="alert alert-success" role="alert" style={{fontSize: '12px'}}>{this.state.message}
+                  </div> : ''
+                }
                   <form className="text-center" onSubmit={this.handleSubmit}>
                       <p>Join our mailing list. We write rarely, but only the best content.</p>
                       <div className="md-form">
@@ -68,22 +71,7 @@ class Subscribe extends Component {
              
             </div>
             </div>
-            <div className='col-sm-6'>
-            <div className="card">
-                <h5 className="card-header info-color white-text text-center py-4">
-                    <strong>Recent Activity</strong>
-                </h5>
-                <div className="card-body px-lg-5">
-                        <ul className="list-group" style={{width : '100%'}}>
-                            {this.state.recentActivity.map(row => (
-                            <li className="list-group-item disabled" key={row.id}>
-                            <span style={{color:'#28a745'}}>{row.user_name}</span> followed the idea <span style={{color:'black'}}>{row.title}</span>
-                            </li>
-                            ))}
-                        </ul>
-              </div>
-            </div>
-            </div>
+            <RecentActivity />
           
           </div>
       </div>

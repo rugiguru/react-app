@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
+import { css } from '@emotion/core';
+import { RotateLoader } from 'react-spinners';
 import axios from "axios";
 import '../components/CreateFeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTags, faSync } from '@fortawesome/free-solid-svg-icons'
+const override = css`
+    margin : 5px;
+    margin-top : 50px;
+
+`;
 
 class Topic extends Component {
 
@@ -13,11 +20,12 @@ class Topic extends Component {
         this.crearteFeed = this.crearteFeed.bind(this);
         this.state = { 
           topics : [], 
-          hasMoreItems: true,
+          hasMoreItems: true, showloader : false
         }
     }
 
     componentDidMount() {
+      this.setState({showloader:true})
         this.getAllTopics();
       }
 
@@ -33,7 +41,7 @@ class Topic extends Component {
           .then(res => {
             if (res.data && res.data.status === 1) {
               const topics = res.data.data;
-              this.setState({ topics: topics, hasMoreItems:false });
+              this.setState({ topics: topics, hasMoreItems:false,showloader:false });
               
             } else {
               this.props.history.push('/login')
@@ -88,6 +96,14 @@ class Topic extends Component {
               </div>
             </div>
             <hr />
+
+            <p style={{marginTop : '50px', marginLeft : '350px'}}><RotateLoader
+          css={override}
+          sizeUnit={"px"}
+          size={15}
+          color={'#28a745'}
+          loading={this.state.showloader}
+        /></p> 
             
             <InfiniteScroll pageStart={0} loadMore={this.getAllTopics} hasMore={this.state.hasMoreItems}
                         loader={<div className="loader" key={0}></div>} >  
