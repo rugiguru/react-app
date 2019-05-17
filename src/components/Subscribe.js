@@ -13,8 +13,6 @@ class Subscribe extends Component {
         }
     }
 
-    
-
     handleChange(event) {
         const inputKey = event.target.name;
         this.setState({[inputKey]: event.target.value});

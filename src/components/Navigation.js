@@ -5,6 +5,7 @@ import Login from './Login'
 import Topic from './Topic'
 import CreateTopic from './CreateFeed'
 import Register from './Register'
+import PostDetail from './PostDetail'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "jquery/dist/jquery.min";
 import "bootstrap/dist/js/bootstrap.min";
@@ -84,6 +85,7 @@ class Navigation extends Component {
             <Route path="/register" component={Register}/>
             <Route path="/about"/>
             <Route path="/create-feed" component={CreateTopic}/>
+            <Route path="/post-details/:id" component={PostDetail}/>
             
             </div>
         </Router>  

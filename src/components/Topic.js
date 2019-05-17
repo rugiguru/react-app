@@ -18,6 +18,7 @@ class Topic extends Component {
         super(props);
         this.getAllTopics = this.getAllTopics.bind(this);
         this.crearteFeed = this.crearteFeed.bind(this);
+        this.getPostDetails = this.getPostDetails.bind(this);
         this.state = { 
           topics : [], 
           hasMoreItems: true, showloader : false
@@ -49,12 +50,16 @@ class Topic extends Component {
           })
           .catch(e => {});
       }
+
+      getPostDetails = param => e => {
+        this.props.history.push('/post-details/' + param);
+      }
     
     render(){
         var items = [];
         this.state.topics.map(topic => {
             items.push( 
-            <div  key={topic.id}>
+            <div  key={topic.id} onClick={this.getPostDetails(topic.id)} style={{cursor:'pointer'}}>
             <div className='row question'>
                 <div className='col-lg-10 module-title' >
                     {topic.title}
@@ -90,7 +95,7 @@ class Topic extends Component {
             </div>
             <div className='col-lg-7'>
             <div>
-              <h2 className="text-center ">Explore Ideas</h2>
+              <h2 className="text-center ">Top Posts</h2>
               <div className="text-right top-feeds">
                 <button className="btn btn-success" onClick={this.crearteFeed}>Share</button>
               </div>

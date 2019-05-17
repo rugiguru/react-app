@@ -93,7 +93,7 @@ class Home extends Component {
           }
           </div>
       </div>
-
+            
       <hr style={{width:'75%'}}/>
 
      <Subscribe />

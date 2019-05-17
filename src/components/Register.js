@@ -56,9 +56,10 @@ export default class Register extends Component {
 
     if( this.state.password !==  this.state.c_password ) {
       this.setState({c_passwordError: false, equalityError : true});
+      return false;
     }
 
-    
+    this.setState({showloader: true})
     axios.post(`http://localhost:8000/api/register`,
     {
       u_name : this.state.u_name,
@@ -71,7 +72,7 @@ export default class Register extends Component {
         this.setState({message:res.data.message, showloader: false, flashbox: true, errorbox : false});
         
       } else if (res.data.status === 0){
-        this.setState({message:res.data.messages, showloader: false, errorbox: true, flashbox: false});
+        this.setState({message:res.data.messages, showloader: false, errorbox: true, flashbox: false,equalityError : false});
       }
        else {
         this.setState({"error":1,"message":res.data.message, showloader: false});
