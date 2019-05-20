@@ -88,7 +88,7 @@ class Home extends Component {
           <div className='row'>
           {
             this.state.topics.map(topic => (
-              <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} key={topic.id} dataId={topic.id}/>
+              <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} key={topic.id} dataId={topic.id} votes={topic.votes}/>
             ))
           }
           </div>

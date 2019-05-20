@@ -1,0 +1,10 @@
+.badge {
+    border-radius: 100px;
+}
+.badge-notify{
+    background: #28a745;
+    position:relative;
+    top: -13px;
+    left: -1px;
+    border-radius: 2rem;
+   }

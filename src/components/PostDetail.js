@@ -4,6 +4,7 @@ class PostDetail extends Component {
     constructor(props){
         super(props);
         this.getPostDetail = this.getPostDetail.bind(this);
+        this.updateViews = this.updateViews.bind(this);
         this.state = {
             postdetail : []
         }
@@ -11,6 +12,7 @@ class PostDetail extends Component {
 
     componentDidMount(){
         this.getPostDetail();
+        
     }
 
     getPostDetail(){
@@ -28,6 +30,21 @@ class PostDetail extends Component {
               } 
             })
             .catch(e => {});
+    this.updateViews()
+    }
+
+    updateViews() {
+      let postid = this.props.match.params.id;
+      let data = {
+        id : postid
+    }
+
+    axios.post(
+      "http://localhost:8000/api/update-views" , data
+    )
+      .then(res => {
+      })
+      .catch(e => {});
     }
 
 

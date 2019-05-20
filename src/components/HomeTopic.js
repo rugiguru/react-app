@@ -62,14 +62,18 @@ class HomeTopic extends Component {
                   window.location.reload();
                   
                 } else {
-                  this.props.history.push('/login')
+                  this.props.history.push('/register')
                 }
               })
               .catch(e => {});
       } else {
-        this.props.history.push('/login')
+        this.props.history.push('/register')
       }
       
+    }
+
+    postDetails = param => e => {
+      this.props.history.push('/post-details/' + param);
     }
     
 
@@ -84,12 +88,12 @@ class HomeTopic extends Component {
                   <p className="card-text">{this.props.title} </p>
                   <p>by <span style={{color:'#28a745'}}>{this.props.user}</span></p>
                     {follwingIds === 1 ? 
-                  <p style={{color:'#28a745'}} >following <FontAwesomeIcon icon={faSync} color='#28a745' />  <span className="label label-default">5</span></p>
+                  <p style={{color:'#28a745'}} >following <FontAwesomeIcon icon={faSync} color='#28a745' />  <span className="label label-default">{this.props.votes}</span></p>
                     : 
                     <p>follow <button className='no-border' onClick={this.followIdea(this.props.dataId)}><FontAwesomeIcon icon={faSync} color='#28a745'/>  </button>
-                    <span className="label label-default">5</span></p>
+                    <span className="label label-default">{this.props.votes}</span></p>
                     }
-                  <button className="btn btn-success no-border btn-sm">Read</button>
+                  <button className="btn btn-success no-border btn-sm" onClick={this.postDetails(this.props.dataId)}>Read</button>
                 </div>
             </div>
         </div>

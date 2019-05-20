@@ -6,9 +6,12 @@ import Topic from './Topic'
 import CreateTopic from './CreateFeed'
 import Register from './Register'
 import PostDetail from './PostDetail'
+import '../assets/css/notification.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "jquery/dist/jquery.min";
 import "bootstrap/dist/js/bootstrap.min";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBell } from '@fortawesome/free-solid-svg-icons'
 
 class Navigation extends Component {
     constructor(props){
@@ -63,7 +66,14 @@ class Navigation extends Component {
                     
                     {this.state.token ?
                     <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <Link className='navbar-brand' to=''> 
+                                <FontAwesomeIcon icon={faBell} color='black'/> 
+                                <span className="badge badge-notify">3</span>
+                            </Link>  
+                        </li>
                         <li className="nav-item dropdown">
+                      
                             <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style={{'paddingRight': '5em'}}>
                             Welcome {this.state.user_name}
                             </a>
