@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
 import RecentActivity from './RecentActivity';
+import '../assets/css/subscribe.css'
 import axios from 'axios';
 
 class Subscribe extends Component {

@@ -24,10 +24,6 @@ class CreateFeed extends Component {
         let token = localStorage.getItem('authKey');
         if(token)
         {
-            var headers = {
-                'Accept' : 'application/json',
-                'Authorixation' : 'Bearer ' + token
-            }
             var data =  {
                 title: this.state.title,
                 details: this.state.details,

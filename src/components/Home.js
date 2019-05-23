@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { css } from '@emotion/core';
+import {Carousel} from "react-bootstrap"
 import { RotateLoader } from 'react-spinners';
+import Image1 from '../assets/images/img1.jpg'
+import Image2 from '../assets/images/img2.jpg'
+import Image3 from '../assets/images/img3.jpg'
+import Image4 from '../assets/images/img4.jpg'
+import Image7 from '../assets/images/img7.jpg'
+import Image8 from '../assets/images/img8.jpg'
 import axios from "axios";
 import Footer from './Footer'
 import HomeTopic from './HomeTopic';
@@ -68,7 +75,7 @@ class Home extends Component {
               <div className="row">
                   <div className="col-lg-12 text-center">
                     <h1 className="font-weight-light"></h1>
-                    <p className='text-center'>djkdh djkfhfj</p>
+                    <p className='text-center'>Inspiration from within</p>
                     <button className="btn btn-success" onClick={this.getStarted}>Get Started!</button>
                   </div>
               </div>
@@ -76,13 +83,55 @@ class Home extends Component {
       </div>
 
         <hr style={{width:'75%'}}/>
-        <p style={{marginTop : '50px', marginLeft : '700px'}}><RotateLoader
+        <div style={{width: '80%',height:'80%', margin: '0 auto'}}>
+          <Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Image8}
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Image7}
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Image3}
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
+
+<hr style={{width:'75%'}}/>
+</div>
+     
+        <div style={{marginTop : '50px', marginLeft : '700px'}}><RotateLoader
           css={override}
           sizeUnit={"px"}
           size={15}
           color={'#28a745'}
           loading={this.state.showloader}
-        /></p> 
+        /></div> 
 
       <div className='container module-ideas'>
           <div className='row'>

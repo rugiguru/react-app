@@ -9,7 +9,6 @@ import { faTags, faSync } from '@fortawesome/free-solid-svg-icons'
 const override = css`
     margin : 5px;
     margin-top : 50px;
-
 `;
 
 class Topic extends Component {
@@ -36,7 +35,7 @@ class Topic extends Component {
 
     getAllTopics() {
         axios.get(
-          "http://localhost:8000/api/topics",
+          "http://ec2-107-23-25-96.compute-1.amazonaws.com/api/topics",
           "get"
         )
           .then(res => {
@@ -95,8 +94,8 @@ class Topic extends Component {
             </div>
             <div className='col-lg-7'>
             <div>
-              <h2 className="text-center ">Top Posts</h2>
-              <div className="text-right top-feeds">
+              <h2 className="">Top Posts</h2>
+              <div className="top-feeds">
                 <button className="btn btn-success" onClick={this.crearteFeed}>Share</button>
               </div>
             </div>
