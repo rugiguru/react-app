@@ -13,7 +13,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-   
+    this.register = this.register.bind(this);
     this.state = { flashbox: false, name:'', emailError : false, passwordError : false, showloader: false }
   }
 
@@ -31,6 +31,10 @@ export default class Login extends Component {
     this.setState({[inputKey]: event.target.value});
     
   }
+
+  register(){
+    this.props.history.push('./register')
+}
 
   handleSubmit = event => {
     
@@ -100,7 +104,9 @@ export default class Login extends Component {
           color={'#28a745'}
           loading={this.state.showloader}
         /></p> 
-      
+     
+
+       <p>Not a member? Register <button className='btn-sm no-border' onClick={this.register}>here</button></p>
       </form>
 
     </div>

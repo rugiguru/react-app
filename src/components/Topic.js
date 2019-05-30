@@ -100,14 +100,14 @@ class Topic extends Component {
               </div>
             </div>
             <hr />
-
-            <p style={{marginTop : '50px', marginLeft : '350px'}}><RotateLoader
+            
+            <div style={{marginTop : '50px', marginLeft : '350px'}}><RotateLoader
           css={override}
           sizeUnit={"px"}
           size={15}
           color={'#28a745'}
           loading={this.state.showloader}
-        /></p> 
+        /></div> 
             
             <InfiniteScroll pageStart={0} loadMore={this.getAllTopics} hasMore={this.state.hasMoreItems}
                         loader={<div className="loader" key={0}></div>} >  

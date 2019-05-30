@@ -82,19 +82,20 @@ class HomeTopic extends Component {
     render(){
       let follwingIds = this.state.following;
         return(
-        <div className='col-md-3' style={{minHeight: '100px'}}>
+        <div className='col-md-3'>
             <div className="card">
-                <div className="card-body">
+                <div className="card-body" style={{minHeight: '150px'}}>
                   <p className="card-text">{this.props.title} </p>
                   <p>by <span style={{color:'#28a745'}}>{this.props.user}</span></p>
-                    {follwingIds === 1 ? 
-                  <p style={{color:'#28a745'}} >following <FontAwesomeIcon icon={faSync} color='#28a745' />  <span className="label label-default">{this.props.votes}</span></p>
-                    : 
-                    <p>follow <button className='no-border' onClick={this.followIdea(this.props.dataId)}><FontAwesomeIcon icon={faSync} color='#28a745'/>  </button>
-                    <span className="label label-default">{this.props.votes}</span></p>
-                    }
-                  <button className="btn btn-success no-border btn-sm" onClick={this.postDetails(this.props.dataId)}>Read</button>
                 </div>
+            </div>
+            <div style={{textAlign: 'center', paddingTop: '5px'}}>
+            {follwingIds === 1 ? 
+                  <button className='btn btn-success'>following <FontAwesomeIcon icon={faSync} color='#28a745' />  <span className="label label-default">{this.props.votes}</span></button>
+                    : 
+                    <button className='btn-sm' onClick={this.followIdea(this.props.dataId)}>follow <FontAwesomeIcon icon={faSync} color='black'/>  
+                    <span className="label label-default"> {this.props.votes}</span></button>
+            }
             </div>
         </div>
         );

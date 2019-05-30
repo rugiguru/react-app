@@ -135,7 +135,7 @@ export default class Register extends Component {
           color={'#28a745'}
           loading={this.state.showloader}
         /></p> 
-        <br />
+      
         <p>Alraedy registered? Sign in <button className='btn-sm no-border' onClick={this.signin}>here</button></p>
       </form>
     </div>

@@ -1,0 +1,35 @@
+.profile {
+    padding-top: 100px;
+}
+
+
+
+    .nav-tabs>li>a {
+        margin-right: 2px;
+        line-height: 1.428571429;
+        border: 1px solid transparent;
+        border-radius: 4px 4px 0 0; }
+
+        .nav>li>a {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        a {
+            color: #428bca;
+            text-decoration: none;
+        }
+
+        .panel-default {
+            border-color: #ddd;
+        }
+
+        .panel {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
