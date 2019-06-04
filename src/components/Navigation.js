@@ -58,7 +58,7 @@ class Navigation extends Component {
                         </li>
                         { !this.state.token ?
                         <li className="nav-item">
-                            <Link className='navbar-brand' to='/register'>REGISTER</Link>
+                            <Link className='navbar-brand' to='/register'>SIGNUP</Link>
                         </li> : ''
                         }
                         <li className="nav-item">
