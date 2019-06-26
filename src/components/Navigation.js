@@ -9,11 +9,9 @@ import Profile from './Profile'
 import PostDetail from './PostDetail'
 import Logo from '../assets/images/logo.png'
 import '../assets/css/notification.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "jquery/dist/jquery.min";
-import "bootstrap/dist/js/bootstrap.min";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell,faLocationArrow } from '@fortawesome/free-solid-svg-icons'
+import HomeContainer from "../Home/HomeContainer";
 
 class Navigation extends Component {
     constructor(props){
@@ -91,7 +89,7 @@ class Navigation extends Component {
                 </div>     
             </nav>
                 <link to='/login'></link>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={HomeContainer}/>
             <Route path="/topics" component={Topic} />
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>

@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import RecentActivity from './RecentActivity';
+import RecentActivity from '../components/RecentActivity';
 import '../assets/css/subscribe.css'
 import axios from 'axios';
 

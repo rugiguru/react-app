@@ -11,7 +11,7 @@ import Image8 from '../assets/images/img8.jpg'
 import axios from "axios";
 import Footer from './Footer'
 import HomeTopic from './HomeTopic';
-import Subscribe from './Subscribe'
+
 
 const override = css`
     margin : 5px;
@@ -125,13 +125,15 @@ class Home extends Component {
 <hr style={{width:'75%'}}/>
 </div>
      
-        <div style={{marginTop : '50px', marginLeft : '700px'}}><RotateLoader
+      <div style={{marginTop : '50px', marginLeft : '700px'}}>
+        <RotateLoader
           css={override}
           sizeUnit={"px"}
           size={15}
           color={'#28a745'}
           loading={this.state.showloader}
-        /></div> 
+        />
+      </div> 
 
       <div className='container module-ideas'>
           <div className='row'>
@@ -145,7 +147,6 @@ class Home extends Component {
             
       <hr style={{width:'75%'}}/>
 
-     <Subscribe />
         <br />
         <br />
         <br />
