@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
+import './css/HomeTopic.css'
 
 class HomeTopic extends Component {
     constructor(props){
@@ -82,7 +83,7 @@ class HomeTopic extends Component {
     render(){
       let follwingIds = this.state.following;
         return(
-        <div className='col-md-3'>
+        <div className='col-md-3' style={{marginTop: '0px'}}>
             <div className="card">
                 <div className="card-body" style={{minHeight: '150px'}}>
                   <p className="card-text">{this.props.title} </p>

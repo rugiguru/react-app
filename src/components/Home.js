@@ -10,7 +10,7 @@ import Image7 from '../assets/images/img7.jpg'
 import Image8 from '../assets/images/img8.jpg'
 import axios from "axios";
 import Footer from './Footer'
-import HomeTopic from './HomeTopic';
+import HomeTopic from '../Home/HomeTopic';
 
 
 const override = css`

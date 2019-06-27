@@ -19,7 +19,7 @@ class HomeSlider extends Component {
   return(
    <div>
          <hr style={{width:'75%'}}/>
-        <div style={{width: '80%',height:'80%', margin: '0 auto'}}>
+        <div style={{width: '60%',height:'70%', margin: '0 auto'}}>
           <Carousel>
             <Carousel.Item>
               <img

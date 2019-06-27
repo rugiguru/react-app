@@ -3,7 +3,7 @@ import HomeHeader from './HomeHeader';
 import HomeSlider from './HomeSlider';
 import Loader from '../Loader';
 import axios from "axios";
-import HomeTopic from '../components/HomeTopic';
+import HomeTopic from './HomeTopic';
 import Subscribe from './Subscribe'
 import Footer from '../components/Footer'
 
@@ -39,8 +39,6 @@ class HomeContainer extends Component {
             .catch(e => {});
         }
     
-        
-       
     getStarted(){
     this.props.history.push('/register')
     }

@@ -9,8 +9,7 @@ import { RotateLoader } from 'react-spinners';
 
 const override = css`
     margin : 5px;
-    margin-top : 50px;
-
+    margin-top : 70px;
 `;
 
 
@@ -21,7 +20,7 @@ class Loader extends Component {
  }
  render() {
   return(
-    <div style={{marginTop : '50px', marginLeft : '700px'}}>
+    <div style={{ marginLeft : '700px'}}>
         <RotateLoader
           css={override}
           sizeUnit={"px"}

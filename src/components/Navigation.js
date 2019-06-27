@@ -12,6 +12,9 @@ import '../assets/css/notification.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell,faLocationArrow } from '@fortawesome/free-solid-svg-icons'
 import HomeContainer from "../Home/HomeContainer";
+import "../assets/css/Naviagtion.css"
+import "jquery/dist/jquery.min";
+import "bootstrap/dist/js/bootstrap.min";
 
 class Navigation extends Component {
     constructor(props){

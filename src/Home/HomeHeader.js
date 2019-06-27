@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './css/HomeHeader.css'
 
 
 /**
@@ -15,7 +16,7 @@ class HomeHeader extends Component {
         <div className="row">
             <div className="col-lg-12 text-center">
               <h1 className="font-weight-light"></h1>
-              <p className='text-center'>Inspiration from within</p>
+              <p className='text-center'>Alone we may, Together we can </p>
               <button className="btn btn-success" onClick={this.getStarted}>Get Started!</button>
             </div>
         </div>
