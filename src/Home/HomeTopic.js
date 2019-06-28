@@ -29,7 +29,7 @@ class HomeTopic extends Component {
       if(token)
       {
           axios.get(
-              "http://localhost:8000/api/following-idea",
+              "http://api.ideasup.in/api/following-idea",
               {headers:config}
             )
               .then(res => {
@@ -56,7 +56,7 @@ class HomeTopic extends Component {
 
       if(token)
       {
-        axios.post("http://localhost:8000/api/follow-idea",
+        axios.post("http://api.ideasup.in/api/follow-idea",
               {idea_id : param }, {headers : config})
               .then(res => {
                 if (res.data && res.data.status === 1) {

@@ -27,7 +27,7 @@ class Subscribe extends Component {
         }
 
        let data = { email : this.state.email }
-        axios.post("http://localhost:8000/api/subscribe", data)
+        axios.post("http://api.ideasup.in/api/subscribe", data)
           .then(res => {
             if (res.data && res.data.status === 1) {
               this.setState({message: res.data.message, emailError : false})

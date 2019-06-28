@@ -60,7 +60,7 @@ export default class Register extends Component {
     }
 
     this.setState({showloader: true})
-    axios.post(`http://localhost:8000/api/register`,
+    axios.post(`http://api.ideasup.in/api/register`,
     {
       u_name : this.state.u_name,
       email: this.state.email,

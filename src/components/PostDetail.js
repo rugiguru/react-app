@@ -50,7 +50,7 @@ class PostDetail extends Component {
                 description: this.state.details,
                 ideaId: ideaid
             }
-            axios.post(`http://localhost:8000/api/collab`, data, {headers: {
+            axios.post(`http://api.ideasup.in/api/collab`, data, {headers: {
                     'Accept' : 'application/json',
                     'Authorization' : 'Bearer ' + token
                 }})
@@ -74,7 +74,7 @@ class PostDetail extends Component {
             id : postid
         }
         axios.post(
-            "http://localhost:8000/api/post-details" , data
+            "http://api.ideasup.in/api/post-details" , data
           )
             .then(res => {
               if (res.data && res.data.status === 1) {
@@ -87,7 +87,7 @@ class PostDetail extends Component {
     }
 
     getRecentActivity() {
-        axios.get("http://localhost:8000/api/recent-activity")
+        axios.get("http://api.ideasup.in/api/recent-activity")
             .then(res => {
                 if (res.data && res.data.status === 1) {
                     const recentActivity = res.data.data;
@@ -104,7 +104,7 @@ class PostDetail extends Component {
     }
 
     axios.post(
-      "http://localhost:8000/api/update-views" , data
+      "http://api.ideasup.in/api/update-views" , data
     )
       .then(res => {
       })

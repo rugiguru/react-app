@@ -40,7 +40,7 @@ class Home extends Component {
   }
 
   getAllTopics() {
-      axios.get("http://localhost:8000/api/get-home-ideas")
+      axios.get("http://api.ideasup.in/api/get-home-ideas")
         .then(res => {
           if (res.data && res.data.status === 1) {
             const topics = res.data.data;

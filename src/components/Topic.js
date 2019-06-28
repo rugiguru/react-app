@@ -35,7 +35,7 @@ class Topic extends Component {
 
     getAllTopics() {
         axios.get(
-          "http://localhost:8000/api/topics",
+          "http://api.ideasup.in/api/topics",
           "get"
         )
           .then(res => {

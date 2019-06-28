@@ -29,7 +29,7 @@ class CreateFeed extends Component {
                 details: this.state.details,
                 tags: this.state.options
             }
-            axios.post(`http://localhost:8000/api/create-idea`, data, {headers: {
+            axios.post(`http://api.ideasup.in/api/create-idea`, data, {headers: {
                 'Accept' : 'application/json',
                 'Authorization' : 'Bearer ' + token
             }})

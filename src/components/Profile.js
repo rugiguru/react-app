@@ -32,7 +32,7 @@ class Profile extends Component {
             'Authorization' : 'Bearer ' + token,
             'Content-Type' : 'multipart/form-data',
         }
-         axios.get(`http://localhost:8000/api/get-user-profile`, {headers: config})
+         axios.get(`http://api.ideasup.in/api/get-user-profile`, {headers: config})
          .then(res => {
             if(res.data.status === 1){
               this.setState({profileMessage:res.data.data});
@@ -81,7 +81,7 @@ class Profile extends Component {
             'Authorization' : 'Bearer ' + token,
             'Content-Type' : 'multipart/form-data',
         }
-        axios.post(`http://localhost:8000/api/update-profile`,
+        axios.post(`http://api.ideasup.in/api/update-profile`,
             data,{headers: config})
     .then(res => {
       if(res.data.status === 1){
@@ -101,7 +101,7 @@ class Profile extends Component {
 
     render(){
         
-        let imagUrl = 'http://localhost:8000/profilepics/' + this.state.profileMessage.profile_pic;
+        let imagUrl = 'http://api.ideasup.in/profilepics/' + this.state.profileMessage.profile_pic;
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {

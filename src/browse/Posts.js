@@ -1,0 +1,107 @@
+import React, { Component } from 'react'
+import InfiniteScroll from 'react-infinite-scroller'
+import { css } from '@emotion/core';
+import { RotateLoader } from 'react-spinners';
+import axios from "axios";
+const override = css`
+    margin : 5px;
+    margin-top : 50px;
+`;
+
+
+class Posts extends Component {
+    constructor(props){
+        super(props);
+        this.getAllTopics = this.getAllTopics.bind(this);
+        this.crearteFeed = this.crearteFeed.bind(this);
+        this.getPostDetails = this.getPostDetails.bind(this);
+        this.state = { 
+          topics : [], 
+          hasMoreItems: true, showloader : false
+        }
+    }
+
+    componentDidMount() {
+        this.setState({showloader:true})
+          this.getAllTopics();
+        }
+  
+      crearteFeed(){
+          this.props.history.push('/create-feed')
+        }
+  
+      getAllTopics() {
+          axios.get(
+            "http://api.ideasup.in/api/topics",
+            "get"
+          )
+            .then(res => {
+              if (res.data && res.data.status === 1) {
+                const topics = res.data.data;
+                this.setState({ topics: topics, hasMoreItems:false,showloader:false });
+                
+              } else {
+                this.props.history.push('/login')
+              }
+            })
+            .catch(e => {});
+        }
+  
+        getPostDetails = param => e => {
+          this.props.history.push('/post-details/' + param);
+        }
+ render() {
+    var items = [];
+    this.state.topics.map(topic => {
+        items.push( 
+        <div  key={topic.id} onClick={this.getPostDetails(topic.id)} style={{cursor:'pointer'}}>
+        <div className='row question'>
+            <div className='col-lg-10 module-title' >
+                {topic.title}
+            </div>
+            <div className='col-lg-2'>
+               <div className='row question-stats'>
+                    <div className='col-lg-4 text-center views'>Views <p>{topic.views}</p></div>
+                    <div className='col-lg-4 text-center votes'>following <p>{topic.votes}</p></div>
+               </div>
+            </div> 
+        </div>
+
+      <div className="logo q-time">
+        <p className='text-left'>by <span className='user'>{topic.user_name} </span>, published <span className='user'>4 Minutes</span> ago</p>
+      </div>
+       <hr />
+       </div> 
+       );}); 
+  return(
+   <div>
+       <div>
+              <h2 className="">Top Posts</h2>
+              <div className="top-feeds">
+                <button className="btn btn-success" onClick={this.crearteFeed}>Share</button>
+              </div>
+            </div>
+            <hr />
+            
+            <div style={{marginTop : '50px', marginLeft : '350px'}}><RotateLoader
+          css={override}
+          sizeUnit={"px"}
+          size={15}
+          color={'#28a745'}
+          loading={this.state.showloader}
+        /></div> 
+            
+            <InfiniteScroll pageStart={0} loadMore={this.getAllTopics} hasMore={this.state.hasMoreItems}
+                        loader={<div className="loader" key={0}></div>} >  
+                <div className="tracks">
+                    {items}
+                </div>
+           </InfiniteScroll>
+   </div>
+    )
+   }
+ }
+
+
+
+export default Posts

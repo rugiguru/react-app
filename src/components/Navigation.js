@@ -15,6 +15,7 @@ import HomeContainer from "../Home/HomeContainer";
 import "../assets/css/Naviagtion.css"
 import "jquery/dist/jquery.min";
 import "bootstrap/dist/js/bootstrap.min";
+import BrowseContainer from "../browse/BrowseContainer";
 
 class Navigation extends Component {
     constructor(props){
@@ -93,7 +94,7 @@ class Navigation extends Component {
             </nav>
                 <link to='/login'></link>
             <Route exact path="/" component={HomeContainer}/>
-            <Route path="/topics" component={Topic} />
+            <Route path="/topics" component={BrowseContainer} />
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
             <Route path="/about"/>

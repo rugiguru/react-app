@@ -16,7 +16,7 @@ class RecentActivity extends Component {
     }
 
     getRecentActivity() {
-        axios.get("http://localhost:8000/api/recent-activity")
+        axios.get("http://api.ideasup.in/api/recent-activity")
           .then(res => {
             if (res.data && res.data.status === 1) {
               const recentActivity = res.data.data;
