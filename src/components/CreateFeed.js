@@ -51,8 +51,8 @@ class CreateFeed extends Component {
     render(){
         const { validated } = this.state;
         return(
-            <div className='module-createFeed'>
-            <h4 className='text-center'>Create Feed</h4>
+            <div className='module-createFeed' style={{paddingTop:'100px'}}>
+            <h4 className='text-center' style={{color:'green',fontWeight:'bold'}}>Create Feed</h4>
             <div className='container '>
             {
                 this.state.flashbox ? <div className="alert alert-success" role="alert">{this.state.message}

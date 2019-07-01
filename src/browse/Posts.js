@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { withRouter } from "react-router-dom";
 import InfiniteScroll from 'react-infinite-scroller'
 import { css } from '@emotion/core';
 import { RotateLoader } from 'react-spinners';
 import axios from "axios";
+import "./css/Posts.css"
 const override = css`
     margin : 5px;
     margin-top : 50px;
@@ -76,11 +78,11 @@ class Posts extends Component {
   return(
    <div>
        <div>
-              <h2 className="">Top Posts</h2>
-              <div className="top-feeds">
-                <button className="btn btn-success" onClick={this.crearteFeed}>Share</button>
-              </div>
-            </div>
+          <h2 className="posts-head">Top Posts</h2>
+          <div className="top-feeds">
+            <button className="btn btn-success" onClick={this.crearteFeed}>Share</button>
+          </div>
+      </div>
             <hr />
             
             <div style={{marginTop : '50px', marginLeft : '350px'}}><RotateLoader
@@ -104,4 +106,4 @@ class Posts extends Component {
 
 
 
-export default Posts
+export default withRouter(Posts);

@@ -14,13 +14,13 @@ class BrowseContainer extends Component {
  render() {
     
   return(
-    <div className='module-topic'>
-    <div className='row'>
-    <div className='col-lg-2'>
+    <div className='container'>
+    <div className='row browse-page '>
+    <div className='col-lg-3'>
         <LeftBar />
     </div>
 
-    <div className='col-lg-7'>
+    <div className='col-lg-6'>
           <Posts />
     </div>
 
@@ -28,7 +28,7 @@ class BrowseContainer extends Component {
         <RightBar />
     </div>
 
-
+  
     </div>
     </div>
 

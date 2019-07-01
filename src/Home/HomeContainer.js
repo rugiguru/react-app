@@ -11,7 +11,7 @@ class HomeContainer extends Component {
 
     constructor(){
         super();
-        this.getStarted = this.getStarted.bind(this);
+        
         this.register = this.register.bind(this);
         this.browse = this.browse.bind(this);
         this.getAllTopics = this.getAllTopics.bind(this);
@@ -39,9 +39,7 @@ class HomeContainer extends Component {
             .catch(e => {});
         }
     
-    getStarted(){
-    this.props.history.push('/register')
-    }
+    
 
     register(){
     this.props.history.push('/register')

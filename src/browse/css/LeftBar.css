@@ -1,0 +1,11 @@
+@media (max-width: 768px) { /* mobile view */
+   
+    .posts-head{
+        padding-top: 20px;
+        margin-left: 100px;
+    }
+    .top-feeds{
+        margin-left: 130px;
+    }
+    
+}
