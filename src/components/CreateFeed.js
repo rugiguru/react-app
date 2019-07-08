@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import {Form} from "react-bootstrap";
+var {API_URL} = require("../assets/config");
 
 class CreateFeed extends Component {
     constructor(props){
@@ -29,7 +30,7 @@ class CreateFeed extends Component {
                 details: this.state.details,
                 tags: this.state.options
             }
-            axios.post(`http://api.ideasup.in/api/create-idea`, data, {headers: {
+            axios.post(API_URL +`api/create-idea`, data, {headers: {
                 'Accept' : 'application/json',
                 'Authorization' : 'Bearer ' + token
             }})

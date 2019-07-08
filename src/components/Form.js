@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import "./myStyle.css"
+var {API_URL} = require("../assets/config");
 
 class Form extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class Form extends Component {
             'Accept': 'application/json'
         }
         
-        axios.post('http://api.ideasup.in/api/login', {
+        axios.post(API_URL + 'api/login', {
             email: this.state.username,
             password: this.state.password
           })

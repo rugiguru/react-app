@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import '../assets/css/profile.css'
 import Moment from 'react-moment';
-
+var {API_URL} = require("../assets/config");
 
 class Profile extends Component {
 
@@ -32,7 +32,7 @@ class Profile extends Component {
             'Authorization' : 'Bearer ' + token,
             'Content-Type' : 'multipart/form-data',
         }
-         axios.get(`http://api.ideasup.in/api/get-user-profile`, {headers: config})
+         axios.get(API_URL + `api/get-user-profile`, {headers: config})
          .then(res => {
             if(res.data.status === 1){
               this.setState({profileMessage:res.data.data});
@@ -81,7 +81,7 @@ class Profile extends Component {
             'Authorization' : 'Bearer ' + token,
             'Content-Type' : 'multipart/form-data',
         }
-        axios.post(`http://api.ideasup.in/api/update-profile`,
+        axios.post(API_URL + `api/update-profile`,
             data,{headers: config})
     .then(res => {
       if(res.data.status === 1){
@@ -101,7 +101,7 @@ class Profile extends Component {
 
     render(){
         
-        let imagUrl = 'http://api.ideasup.in/profilepics/' + this.state.profileMessage.profile_pic;
+        let imagUrl = API_URL + 'profilepics/' + this.state.profileMessage.profile_pic;
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {

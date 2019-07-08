@@ -19,6 +19,8 @@ const override = css`
 
 `;
 
+var {API_URL} = require("../assets/config");
+
  
 class Home extends Component {
   constructor(){
@@ -40,7 +42,7 @@ class Home extends Component {
   }
 
   getAllTopics() {
-      axios.get("http://api.ideasup.in/api/get-home-ideas")
+      axios.get(API_URL + "api/get-home-ideas")
         .then(res => {
           if (res.data && res.data.status === 1) {
             const topics = res.data.data;

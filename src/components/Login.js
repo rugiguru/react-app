@@ -8,6 +8,7 @@ const override = css`
     margin-top : 50px;
 
 `;
+var {API_URL} = require("../assets/config");
 
 export default class Login extends Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export default class Login extends Component {
       this.setState({emailError: false, passwordError : false});
     }
     this.setState({showloader: true})
-    axios.post(`http://api.ideasup.in/api/login`,
+    axios.post(API_URL + `api/login`,
     {
       email: this.state.email,
       password: this.state.password

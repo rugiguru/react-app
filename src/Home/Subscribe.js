@@ -2,7 +2,7 @@ import React , { Component } from 'react';
 import RecentActivity from '../components/RecentActivity';
 import './css/Subscribe.css'
 import axios from 'axios';
-
+var {API_URL} = require("../assets/config");
 class Subscribe extends Component {
     constructor(props){
         super(props);
@@ -27,7 +27,7 @@ class Subscribe extends Component {
         }
 
        let data = { email : this.state.email }
-        axios.post("http://api.ideasup.in/api/subscribe", data)
+        axios.post(API_URL + "api/subscribe", data)
           .then(res => {
             if (res.data && res.data.status === 1) {
               this.setState({message: res.data.message, emailError : false})

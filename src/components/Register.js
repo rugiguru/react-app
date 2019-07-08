@@ -8,6 +8,7 @@ const override = css`
     margin-top : 50px;
 
 `;
+var {API_URL} = require("../assets/config");
 
 export default class Register extends Component {
   constructor(props) {
@@ -60,7 +61,7 @@ export default class Register extends Component {
     }
 
     this.setState({showloader: true})
-    axios.post(`http://api.ideasup.in/api/register`,
+    axios.post(API_URL + `api/register`,
     {
       u_name : this.state.u_name,
       email: this.state.email,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+var {API_URL} = require("../assets/config");
 
 class RecentActivity extends Component {
     constructor(props){
@@ -16,7 +17,7 @@ class RecentActivity extends Component {
     }
 
     getRecentActivity() {
-        axios.get("http://api.ideasup.in/api/recent-activity")
+        axios.get(API_URL + "api/recent-activity")
           .then(res => {
             if (res.data && res.data.status === 1) {
               const recentActivity = res.data.data;

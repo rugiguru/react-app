@@ -9,6 +9,7 @@ const override = css`
     margin : 5px;
     margin-top : 50px;
 `;
+var {API_URL} = require("../assets/config");
 
 
 class Posts extends Component {
@@ -34,7 +35,7 @@ class Posts extends Component {
   
       getAllTopics() {
           axios.get(
-            "http://api.ideasup.in/api/topics",
+           API_URL+ "api/topics",
             "get"
           )
             .then(res => {
