@@ -29,10 +29,6 @@ class HomeContainer extends Component {
       }
     
       getAllTopics() {
-<<<<<<< HEAD
-        
-          axios.get(API_URL + "api/get-home-ideas")
-=======
         const token = localStorage.getItem('authKey');
         let URL = '';
         var config = {};
@@ -49,7 +45,6 @@ class HomeContainer extends Component {
         }
         }
           axios.get(URL, {headers : config})
->>>>>>> 8ac0f31db661313d3913eaa98d3b3a82021d60d3
             .then(res => {
               if (res.data && res.data.status === 1) {
                 const topics = res.data.data;
