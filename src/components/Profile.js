@@ -10,11 +10,14 @@ class Profile extends Component {
         super(props);
         this.state = {
           file: '',
-          imagePreviewUrl: '', ismage : false, message : '', flashbox : false, profileMessage : ''
+          imagePreviewUrl: '', ismage : false, message : '', flashbox : false, profileMessage : '',
+          about : ''
         };
         this._handleImageChange = this._handleImageChange.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
         this.getUserProfile = this.getUserProfile.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleAbout = this.handleAbout.bind(this);
       }
 
       componentDidMount(){
@@ -51,12 +54,12 @@ class Profile extends Component {
      }
  
     
-      _handleSubmit(e) {
+    _handleSubmit(e) {
         e.preventDefault();
         
       }
     
-      _handleImageChange(e) {
+    _handleImageChange(e) {
         e.preventDefault();
     
         let reader = new FileReader();
@@ -98,6 +101,15 @@ class Profile extends Component {
     });
 
       }
+
+    handleChange(event) {
+        this.setState({about: event.target.value});
+      }
+    
+    handleAbout(event){
+      event.preventDefault();
+      
+    }
 
     render(){
         
@@ -191,13 +203,13 @@ class Profile extends Component {
                 <div className="tab-pane active" id="settings">
 
                     <hr />
-                    <form className="form" action="##" method="post" id="registrationForm">
+                    <form className="form" onSubmit={this.handleAbout} id="registrationForm">
                         <div className="form-group">
 
                             <div className="col-xs-6">
                                 <label >
                                     <h4>Tell us About your self</h4></label>
-                                <textarea  className="form-control" rows='10' id='about' name="about"  placeholder="Tell us about you self like your profession, passion and contact info" title="enter your first name if any." >
+                                <textarea  className="form-control" rows='10' id='about' name="about"  value={this.state.about} placeholder="Tell us about you self like your profession, passion and contact info" onChange={this.handleChange}>
                                 {this.state.profileMessage.about}
                                 </textarea>
                             </div>
@@ -206,7 +218,7 @@ class Profile extends Component {
                         <div className="form-group">
                             <div className="col-xs-12">
                                 <br />
-                                <button className="btn btn-lg btn-success" type="submit"><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button className="btn btn-lg btn-success" type="submit" ><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
                                 
                             </div>
                         </div>

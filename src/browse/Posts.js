@@ -33,7 +33,7 @@ class Posts extends Component {
           this.props.history.push('/create-feed')
         }
   
-      getAllTopics() {
+      async  getAllTopics() {
           axios.get(
            API_URL+ "api/topics",
             "get"
@@ -48,6 +48,13 @@ class Posts extends Component {
               }
             })
             .catch(e => {});
+
+            // const res = await axios.get(API_URL+ "api/topics");
+           
+            // const { ideas } = await res.data.data;
+            // console.log({res})
+            // this.setState({topics: {ideas}})
+          
         }
   
         getPostDetails = param => e => {

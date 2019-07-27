@@ -29,6 +29,7 @@ class HomeContainer extends Component {
       }
     
       getAllTopics() {
+        
           axios.get(API_URL + "api/get-home-ideas")
             .then(res => {
               if (res.data && res.data.status === 1) {
