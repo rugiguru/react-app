@@ -10,7 +10,6 @@ var {API_URL} = require("../assets/config");
 class HomeTopic extends Component {
     constructor(props){
         super(props);
-       this.getUserData = this.getUserData.bind(this);
        this.followIdea = this.followIdea.bind(this);
         this.state = {
             following: 0
@@ -18,33 +17,11 @@ class HomeTopic extends Component {
     }
 
     componentDidMount(){
-       this.getUserData();
-      
     }
 
-    getUserData(ideaid){
-      const token = localStorage.getItem('authKey');
-      let config = {
-          'Accept' : 'application/json',
-          'Authorization' : 'Bearer ' + token
-      }
-      if(token)
-      {
-          axios.get(
-              API_URL + "api/following-idea",
-              {headers:config}
-            )
-              .then(res => {
-                if (res.data && res.data.status === 1) {
-                  const following = res.data.data;
-                  
-                  this.setState({ following: following });
-                  
-                } else {
-                  this.props.history.push('/login')
-                }
-              })
-              .catch(e => {});
+    componentWillReceiveProps(newProps) {
+      if (this.state.name !== newProps.name) {
+        this.setState({name: newProps.name});
       }
     }
 
@@ -60,8 +37,7 @@ class HomeTopic extends Component {
               {idea_id : param }, {headers : config})
               .then(res => {
                 if (res.data && res.data.status === 1) {
-                  window.location.reload();
-                  
+                
                 } else {
                   this.props.history.push('/register')
                 }
@@ -92,10 +68,10 @@ class HomeTopic extends Component {
                 </div>
             </div>
             <div style={{textAlign: 'center', paddingTop: '5px'}}>
-            {authKey  ? 
+            {this.props.following == 1  ? 
                   <button className='btn btn-success'>following <FontAwesomeIcon icon={faSync} color='#28a745' />  <span className="label label-default">{this.props.votes}</span></button>
                     : 
-                   ''
+                    <button className='btn btn-default' onClick={this.followIdea(this.props.dataId)} >follow <FontAwesomeIcon icon={faSync} color='gray' />  <span className="label label-default">{this.props.votes}</span></button>
             }
              { /*<ButtonToolbar>
         {

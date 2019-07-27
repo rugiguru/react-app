@@ -29,16 +29,36 @@ class HomeContainer extends Component {
       }
     
       getAllTopics() {
+<<<<<<< HEAD
         
           axios.get(API_URL + "api/get-home-ideas")
+=======
+        const token = localStorage.getItem('authKey');
+        let URL = '';
+        var config = {};
+        if(token){
+           URL = API_URL + `api/get-home-ideas-auth`;
+            config = {
+            'Accept' : 'application/json',
+            'Authorization' : `Bearer ` + token
+        }
+        } else {
+           URL = API_URL + `api/get-home-ideas`;
+              config = {
+            'Accept' : 'application/json'
+        }
+        }
+          axios.get(URL, {headers : config})
+>>>>>>> 8ac0f31db661313d3913eaa98d3b3a82021d60d3
             .then(res => {
               if (res.data && res.data.status === 1) {
                 const topics = res.data.data;
+                console.log(topics);
                 this.setState({ topics: topics, showloader:false});
               } 
               
             })
-            .catch(e => {});
+            .catch(e => {console.error(e); throw e;});
         }
     
     
@@ -61,7 +81,7 @@ class HomeContainer extends Component {
                 <div className='row'>
                 {
                     this.state.topics.map(topic => (
-                    <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} key={topic.id} dataId={topic.id} votes={topic.votes}/>
+                    <HomeTopic title={topic.title} user={topic.user_name} follow={topic.votes} following={topic.following}  key={topic.id} dataId={topic.id} votes={topic.votes}/>
                     ))
                 }
                 </div>
