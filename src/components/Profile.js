@@ -107,7 +107,7 @@ class Profile extends Component {
       }
     
     handleAbout(event){
-      event.preventDefault();
+      
       
     }
 
