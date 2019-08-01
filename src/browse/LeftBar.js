@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faSync } from '@fortawesome/free-solid-svg-icons'
 import {Card,ListGroup} from "react-bootstrap";
 import "./css/LeftBar.css"
 

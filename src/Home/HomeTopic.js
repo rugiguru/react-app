@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import {Button, ButtonToolbar, OverlayTrigger, Tooltip} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
 import './css/HomeTopic.css'
@@ -56,9 +55,7 @@ class HomeTopic extends Component {
 
 
     render(){
-    let authKey = localStorage.getItem('authKey');
-   let placement = 'top';
-      let follwingIds = this.state.following;
+  
         return(
         <div className='col-md-3' style={{marginTop: '0px'}}>
             <div className="card">

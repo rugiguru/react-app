@@ -1,13 +1,11 @@
 import React , {Component} from "react";
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './Home'
+
 import Login from './Login'
-import Topic from './Topic'
 import CreateTopic from './CreateFeed'
 import Register from './Register'
 import Profile from './Profile'
 import PostDetail from './PostDetail'
-import Logo from '../assets/images/logo.png'
 import '../assets/css/notification.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell,faLocationArrow } from '@fortawesome/free-solid-svg-icons'

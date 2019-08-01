@@ -14,10 +14,7 @@ const override = css`
 
 
 class Loader extends Component {
- constructor(props){
-     super(props);
-
- }
+ 
  render() {
   return(
     <div style={{ marginLeft : '700px'}}>

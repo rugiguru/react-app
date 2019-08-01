@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import LeftBar from './LeftBar';
 import Posts from './Posts';
 import RightBar from './RightBar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faSync } from '@fortawesome/free-solid-svg-icons'
 
 
 

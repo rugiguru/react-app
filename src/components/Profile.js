@@ -137,7 +137,7 @@ class Profile extends Component {
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-          $imagePreview = (<img src={imagePreviewUrl} className="rounded-circle img-responsive"  style={{height: '215px', width: '215px'}}/>);
+          $imagePreview = (<img src={imagePreviewUrl} className="rounded-circle img-responsive" alt="Profile Pic"  style={{height: '215px', width: '215px'}}/>);
         }
         return(
                 <div>
@@ -153,7 +153,7 @@ class Profile extends Component {
         </div>
         <div className="col-sm-2">
             
-            {this.state.ismage ? $imagePreview : <img title="profile image" className="rounded-circle img-responsive" src={imagUrl} style={{height: '215px', width: '215px'}} />}
+            {this.state.ismage ? $imagePreview : <img title="profile image" alt="Profile Pic" className="rounded-circle img-responsive" src={imagUrl} style={{height: '215px', width: '215px'}} />}
         <div>
             <form  onSubmit={this._handleSubmit}>
                 <input type="file" id='profilePic'  onChange={this._handleImageChange} />
@@ -207,7 +207,7 @@ class Profile extends Component {
 
                     <ul className="list-group">
                         <li className="list-group-item text-muted">Inbox</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
+                        <li className="list-group-item text-right">2.13.2014</li>
                         
                     </ul>
 

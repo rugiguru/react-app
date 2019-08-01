@@ -123,7 +123,7 @@ class PostDetail extends Component {
                     <h1 className="mt-4">{this.state.postdetail.title}</h1>
                         <p className="lead">
                             by
-                            <a href="#"> {this.state.postdetail.user_name}</a>
+                            {this.state.postdetail.user_name}
                         </p>
                     <hr />
                     <p>Posted on {this.state.postdetail.created_at}</p>

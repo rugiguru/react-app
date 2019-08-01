@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import { css } from '@emotion/core';
+//import { css } from '@emotion/core';
 import {Carousel} from "react-bootstrap"
-import Image1 from '../assets/images/img1.jpg'
-import Image2 from '../assets/images/img2.jpg'
 import Image3 from '../assets/images/img3.jpg'
-import Image4 from '../assets/images/img4.jpg'
 import Image7 from '../assets/images/img7.jpg'
 import Image8 from '../assets/images/img8.jpg'
 
