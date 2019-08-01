@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import '../assets/css/profile.css'
 import Moment from 'react-moment';
+
 var {API_URL} = require("../assets/config");
 
 class Profile extends Component {
@@ -20,6 +21,8 @@ class Profile extends Component {
         this.handleAbout = this.handleAbout.bind(this);
       }
 
+     
+
       componentDidMount(){
         let token = localStorage.getItem('authKey');
         if(!token){
@@ -27,7 +30,7 @@ class Profile extends Component {
         } else {
                 this.getUserProfile()
         }
-     }
+     };
 
      getUserProfile() {
         let token = localStorage.getItem('authKey');
@@ -38,7 +41,8 @@ class Profile extends Component {
          axios.get(API_URL + `api/get-user-profile`, {headers: config})
          .then(res => {
             if(res.data.status === 1){
-              this.setState({profileMessage:res.data.data});
+              this.setState({profileMessage:res.data.data, message:res.data.message});
+              
               
             } else if (res.data.status === 0){
               this.setState({profileMessage:res.data.messages });
@@ -52,7 +56,9 @@ class Profile extends Component {
 
           
      }
- 
+
+  
+    
     
     _handleSubmit(e) {
         e.preventDefault();
@@ -88,7 +94,7 @@ class Profile extends Component {
             data,{headers: config})
     .then(res => {
       if(res.data.status === 1){
-        this.setState({message:res.data.message, flashbox : true});
+        this.setState({message:res.data.message});
         
       } else if (res.data.status === 0){
         this.setState({message:res.data.messages, flashbox : true});
@@ -107,13 +113,27 @@ class Profile extends Component {
       }
     
     handleAbout(event){
-      
-      
+      event.preventDefault();
+      let token = localStorage.getItem('authKey');
+      var config = {
+          'Authorization' : 'Bearer ' + token,
+          'Accept' : 'application/json',
+      }
+     
+       axios.post(API_URL + `api/update-about-user`,{about: this.state.about}, {headers: config})
+       .then(res => {
+          if(res.data.status === 1){
+            this.setState({message:res.data.data});
+          } 
+        }).catch((error) => {
+          this.setState({"error":1,"message":"Unable to Authenticate"});
+        });
+
     }
 
     render(){
         
-        let imagUrl = API_URL + 'profilepics/' + this.state.profileMessage.profile_pic;
+        var imagUrl = API_URL + 'profilepics/' + this.state.profileMessage.profile_pic;
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
@@ -175,27 +195,20 @@ class Profile extends Component {
 
             <ul className="nav nav-tabs" id="myTab">
             <li  className="active"><a href="#settings" data-toggle="tab">About</a></li>
-                <li><a href="#messages" data-toggle="tab">Messages</a></li>
+                <li><a href="#collabs" data-toggle="tab">Collab Requests</a></li>
             </ul>
 
             <div className="tab-content">
                
                
-                <div className="tab-pane" id="messages">
+                <div className="tab-pane" id="collabs">
 
                     <h2></h2>
 
                     <ul className="list-group">
                         <li className="list-group-item text-muted">Inbox</li>
                         <li className="list-group-item text-right"><a href="#" className="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-                        <li className="list-group-item text-right"><a href="#" className="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-
+                        
                     </ul>
 
                 </div>
@@ -203,7 +216,7 @@ class Profile extends Component {
                 <div className="tab-pane active" id="settings">
 
                     <hr />
-                    <form className="form" onSubmit={this.handleAbout} id="registrationForm">
+                    
                         <div className="form-group">
 
                             <div className="col-xs-6">
@@ -218,11 +231,11 @@ class Profile extends Component {
                         <div className="form-group">
                             <div className="col-xs-12">
                                 <br />
-                                <button className="btn btn-lg btn-success" type="submit" ><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button className="btn btn-lg btn-success" type="submit" onClick={this.handleAbout}><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
                                 
                             </div>
                         </div>
-                    </form>
+                   
                 </div>
 
             </div>
