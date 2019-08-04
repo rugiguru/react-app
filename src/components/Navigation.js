@@ -14,6 +14,7 @@ import "../assets/css/Naviagtion.css"
 import "jquery/dist/jquery.min";
 import "bootstrap/dist/js/bootstrap.min";
 import BrowseContainer from "../browse/BrowseContainer";
+import ProfileContainer from "../profile/ProfileContainer";
 
 class Navigation extends Component {
     constructor(props){
@@ -98,7 +99,7 @@ class Navigation extends Component {
             <Route path="/about"/>
             <Route path="/create-feed" component={CreateTopic}/>
             <Route path="/post-details/:id" component={PostDetail}/>
-            <Route path="/profile" component={Profile}/>
+            <Route path="/profile" component={ProfileContainer}/>
             </div>
         </Router>  
         );

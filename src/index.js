@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./body.css"
 
+
 import App from "./App";
+require('dotenv').config()
 
 ReactDOM.render(
   <App/>, 

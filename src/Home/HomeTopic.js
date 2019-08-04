@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync } from '@fortawesome/free-solid-svg-icons'
@@ -70,21 +71,7 @@ class HomeTopic extends Component {
                     : 
                     <button className='btn btn-default' onClick={this.followIdea(this.props.dataId)} >follow <FontAwesomeIcon icon={faSync} color='gray' />  <span className="label label-default">{this.props.votes}</span></button>
             }
-             { /*<ButtonToolbar>
-        {
-          <OverlayTrigger
-          key={placement}
-          placement={placement}
-          overlay={
-          <Tooltip id={`tooltip-${placement}`}>
-          Tooltip on <strong>{placement}</strong>.
-          </Tooltip>
-          }
-          >
-          <Button variant="secondary" >View</Button>
-          </OverlayTrigger>
-        }
-      </ButtonToolbar> */ }
+
             </div>
         </div>
         );

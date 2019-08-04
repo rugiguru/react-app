@@ -127,8 +127,8 @@ class PostDetail extends Component {
                         </p>
                     <hr />
                     <p>Posted on {this.state.postdetail.created_at}</p>
-                        <hr />
-                        <img className="img-fluid rounded" src="http://placehold.it/900x300" alt="" />
+                        {/* <hr />
+                        <img className="img-fluid rounded" src="http://placehold.it/900x300" alt="" /> */}
                         <hr />
                         <p className="lead">{this.state.postdetail.description}</p>
                         <hr />
@@ -183,7 +183,7 @@ class PostDetail extends Component {
                                Views     : {this.state.postdetail.views}
                            </li>
                            <li>
-                            Collabs   : 10
+                            Collabs   : {this.state.postdetail.collabs}
                            </li>
                        </ul>
                     </div>

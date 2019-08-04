@@ -55,6 +55,7 @@ class CreateFeed extends Component {
             <div className='module-createFeed' style={{paddingTop:'100px'}}>
             <h4 className='text-center' style={{color:'green',fontWeight:'bold'}}>Create Feed</h4>
             <div className='container '>
+               
             {
                 this.state.flashbox ? <div className="alert alert-success" role="alert">{this.state.message}
                 </div> : ''
@@ -62,7 +63,7 @@ class CreateFeed extends Component {
             <Form noValidate validated={validated} onSubmit={e => this.handleSubmit(e)} >
                 <Form.Group controlId="ControlInput1">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control required type="text" placeholder="Title" name='title' onChange={this.handleChange}  />
+                    <Form.Control required type="text" placeholder="Title of the idea" name='title' onChange={this.handleChange}  />
                     <Form.Control.Feedback type="invalid">
                 Please choose a Title.
               </Form.Control.Feedback>
@@ -70,7 +71,7 @@ class CreateFeed extends Component {
                
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Details</Form.Label>
-                    <Form.Control required as="textarea" rows="10" name='details' onChange={this.handleChange} />
+                    <Form.Control required as="textarea" rows="10" placeholder="What problem do you want to solve, and what solution do you suggest?" name='details' onChange={this.handleChange} />
                     <Form.Control.Feedback type="invalid">
                             Please Enter the details
                     </Form.Control.Feedback>

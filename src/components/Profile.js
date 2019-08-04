@@ -140,28 +140,28 @@ class Profile extends Component {
           $imagePreview = (<img src={imagePreviewUrl} className="rounded-circle img-responsive" alt="Profile Pic"  style={{height: '215px', width: '215px'}}/>);
         }
         return(
-                <div>
-                    <hr />
-<div className="container bootstrap snippet profile">
-    <div className="row">
-        <div className="col-sm-10">
-            <h1>{this.state.profileMessage.u_name}</h1>
-            {
-                this.state.flashbox ? <div className="alert alert-success" role="alert">{this.state.message}
-                </div> : ''
-            }
-        </div>
-        <div className="col-sm-2">
-            
-            {this.state.ismage ? $imagePreview : <img title="profile image" alt="Profile Pic" className="rounded-circle img-responsive" src={imagUrl} style={{height: '215px', width: '215px'}} />}
-        <div>
-            <form  onSubmit={this._handleSubmit}>
-                <input type="file" id='profilePic'  onChange={this._handleImageChange} />
-                
-            </form>  
-      </div>
-        </div>
-    </div>
+          <div>
+            <hr />
+            <div className="container bootstrap snippet profile">
+              <div className="row">
+                  <div className="col-sm-10">
+                      <h1>{this.state.profileMessage.u_name}</h1>
+                      {
+                          this.state.flashbox ? <div className="alert alert-success" role="alert">{this.state.message}
+                          </div> : ''
+                      }
+                  </div>
+                  <div className="col-sm-2">
+                      
+                      {this.state.ismage ? $imagePreview : <img title="profile image" alt="Profile Pic" className="rounded-circle img-responsive" src={imagUrl} style={{height: '215px', width: '215px'}} />}
+                  <div>
+                      <form  onSubmit={this._handleSubmit}>
+                          <input type="file" id='profilePic'  onChange={this._handleImageChange} />
+                          
+                      </form>  
+                </div>
+                  </div>
+            </div>
     <div className="row">
         <div className="col-sm-3">
            
