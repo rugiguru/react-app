@@ -53,7 +53,7 @@ export default class Login extends Component {
     if( this.state.email && this.state.password ) {
       this.setState({emailError: false, passwordError : false});
     }
-    this.setState({showloader: true})
+    this.setState({showloader: true});
     axios.post(API_URL + `api/login`,
     {
       email: this.state.email,

@@ -14,7 +14,7 @@ export default class ProfileContainer extends Component {
         this.state = {
           file: '',
           imagePreviewUrl: '', ismage : false, message : '', flashbox : false, profileMessage : '',
-          about : ''
+          about : '',isLoading: true
         };
         this._handleImageChange = this._handleImageChange.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
@@ -25,12 +25,17 @@ export default class ProfileContainer extends Component {
      
 
       componentDidMount(){
+
         let token = localStorage.getItem('authKey');
+       
         if(!token){
             this.props.history.push('/register')
         } else {
                 this.getUserProfile()
+                
         }
+       
+        
      };
 
      getUserProfile() {
@@ -58,9 +63,6 @@ export default class ProfileContainer extends Component {
           
      }
 
-  
-    
-    
     _handleSubmit(e) {
         e.preventDefault();
         
@@ -79,7 +81,6 @@ export default class ProfileContainer extends Component {
             ismage : true
           });
         }
-    
         reader.readAsDataURL(file)
 
         let data = new FormData();
@@ -109,18 +110,23 @@ export default class ProfileContainer extends Component {
 
       }
 
-    
-
     render(){
-        
+      if(Object.keys(this.state.profileMessage).length > 0){
         var imagUrl = API_URL + 'profilepics/' + this.state.profileMessage.profile_pic;
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
           $imagePreview = (<img src={imagePreviewUrl} className="rounded-circle img-responsive" alt="Profile Pic"  style={{height: '215px', width: '215px'}}/>);
         }
+     
         return(
+          
             <div>
+              {
+                this.state.isLoading ? <div class="preload-title">
+                  Hold on, it's loading!
+                </div> : ''
+              }
                 <hr />
                 <div className="container bootstrap snippet profile">
 
@@ -155,8 +161,15 @@ export default class ProfileContainer extends Component {
 <br />
 <br />
 </div>
-              
         )
+    }
+
+    return (
+      <div className='text-center'>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+      </div>
+    )
+
     }
 }
 
