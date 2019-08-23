@@ -72,7 +72,7 @@ class HomeContainer extends Component {
             <HomeHeader />
             <HomeSlider />
             <Loader showloader={this.state.showloader}/>
-            <div className='container module-ideas'>
+            <div className='container module-ideas-back'>
                 <div className='row'>
                 {
                     this.state.topics.map(topic => (
